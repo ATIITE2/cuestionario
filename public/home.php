@@ -39,7 +39,7 @@
             </div -->
             <div class="principal">
                 <div class="contenedor">
-                    <form method="POST" id="signup-form" class="needs-validation signup-form" enctype="multipart/form-data " novalidate>
+                    <form method="POST" id="cuestionario-form" class="needs-validation signup-form" enctype="multipart/form-data " novalidate>
                     <div id="result"></div>
                         <h3>
                             Datos generales
@@ -50,18 +50,26 @@
                                     <label for="nombre">Nombre</label>
                                     <input type="text" name="nombre" id="nombre" />
                                     <div class="invalid-feedback"></div>
-                                </div>
-                                <div class="form-select">
-                                    <span">País</span>
+                                </div>                                
+                                <div class="form-select _country">
+                                    <span class="_country_title">País</span>
                                     <div class="select-group">
                                         <select name="country" id="country">
                                             <option value=""></option>
                                             <option value="Vn">Vietnam</option>
                                             <option value="US">Estados Unidos</option>
                                         </select>
-                                        <div class="invalid-feedback"></div>
                                     </div>
                                 </div>
+                                
+                                <!-- div class="form-select">
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                </div -->
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
@@ -69,15 +77,14 @@
                                     <input type="email" name="email" id="email" autocomplete="on" />
                                     <div class="invalid-feedback"></div>
                                 </div>
-                                <div class="form-select">
-                                    <span>Ingresos mensuales</span>
+                                <div class="form-select _daily_budget">
+                                    <span class="_daily_budget_title">Ingresos mensuales</span>
                                     <div class="select-group">
                                         <select name="daily_budget" id="daily_budget">
                                             <option value=""></option>
                                             <option value="40">MXN $40</option>
                                             <option value="60">MXN $60</option>
                                         </select>
-                                        <div class="invalid-feedback"></div>
                                     </div>
                                 </div>
                             </div>
@@ -89,9 +96,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-check">
+                            <div class="form-check _checado">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>Suscríbase al correo de noticias</label>
+                                <label for="agree-term" class="label-agree-term _checado_title"><span><span></span></span>Suscríbase al correo de noticias</label>
                             </div>
                         </fieldset>
 
@@ -101,7 +108,7 @@
                         <fieldset data-step="1">
                             <div class="form-radio">
                                 <span class="radio-label">¿Qué tipo de cuarto desea?</span>
-                                <div class="form-radio-group">            
+                                <div class="form-radio-group _cuarto">            
                                     <div class="form-radio-item">
                                         <input type="radio" name="room_type" id="single_room" value="1">
                                         <label for="single_room">Cuarto sencillo</label>

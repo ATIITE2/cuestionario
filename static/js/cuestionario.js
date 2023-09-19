@@ -5,7 +5,7 @@ cntrlt [1] =0;
 cntrlt [2] =0;
 
 $(document).ready(function() {
-    $("#signup-form")
+    $("#cuestionario-form")
     .steps({
         headerTag: "h3",
         bodyTag: "fieldset",
@@ -79,7 +79,7 @@ $(document).ready(function() {
 
 function validaDatos(indice){
     
-    const form = $("#signup-form");
+    const form = $("#cuestionario-form");
     var obj= new Object;
     obj['indice'] = indice;
 
@@ -87,11 +87,30 @@ function validaDatos(indice){
         obj['nombre'] = $("#nombre").val();
         obj['email'] = $("#email").val();
         obj['password'] = $("#password").val();
-        obj['country'] = $("#country").val();
-        obj['daily_budget'] = $("#daily_budget").val();
+
+        obj['country']="";
+        $("#country li").each(function(){
+            if($(this).attr('class') === "selected") {
+                obj['country']= $(this).attr('value');
+            }  
+        });
+
+        obj['daily_budget']="";
+        $("#daily_budget li").each(function(){
+            if($(this).attr('class') === "selected") {
+                obj['daily_budget']= $(this).attr('value');
+            }  
+        });
+
+        // console.log("Valor de la lista 1: "+obj['country']);
+        // console.log("Valor de la lista 2: "+obj['daily_budget']);
 
         cntrlt[1] =0;
         cntrlt[2] =0;
+
+        obj['checado'] = ($("#agree-term").is(':checked')) ? 1 : 0;
+
+        // console.log("Valor del check: "+obj['checado']);
     }
 
     if(indice === 1) {
@@ -99,6 +118,8 @@ function validaDatos(indice){
 
         cntrlt[0] =0;
         cntrlt[2] =0;
+
+        // console.log("Valor del radio: "+obj['tipo_cuarto']);
     }
 
     if(indice === 2) {
@@ -116,20 +137,24 @@ function validaDatos(indice){
             cache: false,
             success: function(data) {
                 $(".del-msj").html("");
+                $(".is-invalid").removeClass("is-invalid");
+                $(".invalid-msg").removeClass("invalid-msg");
+                $("._country_title").html("País");
+                $("._daily_budget_title").html("Ingresos mensuales");
+                $("._checado_title").html("<span><span></span></span>Suscríbase al correo de noticias");
                 if(data.success === false) {
                     cntrlt[indice]=0;
                     if(data.error === false) {
                         $("#result").attr("class", "alert alert-danger").html(data.mssg);          
                     }
                     else {
-                        if(data.error === "tipo_cuarto") {
-                            $(".form-radio-group").addClass("is-invalid").focus();
-                            $(".form-radio-group").next().html(data.mssg).addClass("del-msj");
+                        $(data.error).addClass("is-invalid").focus();
+                        if (["._country","._daily_budget","._checado"].includes(data.error)) {
+                            $(data.error+"_title").html(data.mssg).addClass("invalid-msg");
                         }
                         else {
-                            $("#"+data.error).addClass("is-invalid").focus();
-                            $("#"+data.error).next().html(data.mssg).addClass("del-msj");
-                        }     
+                            $(data.error).next().html(data.mssg).addClass("del-msj");
+                        }              
                     }
                 }
                 else {
@@ -147,7 +172,5 @@ function validaDatos(indice){
 
     form.addClass("was-validated");
 
-    let valor = (cntrlt[indice] === 1) ? true : false;
-    return valor;
+    return (cntrlt[indice] === 1) ? true : false;
 }
-

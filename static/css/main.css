@@ -3374,6 +3374,10 @@ textarea.form-control.is-valid {
 .was-validated .input-group > .form-select:not(:focus):valid {
   z-index: 3;
 }
+
+.invalid-msg {
+  color: #dc3545;
+}
 .invalid-feedback {
   color: #dc3545;
   display: none;
