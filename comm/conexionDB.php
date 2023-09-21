@@ -6,7 +6,7 @@ $cred = array();
 $cred["dbhost"]="localhost";
 $cred["dbusr"]= ($casa) ? "franktlx" : "lefranktlx";
 $cred["dbpass"]= ($casa) ? "H0l4H0l4" : "HolaHola";
-$cred["dbname"]="cuestionario_test";
+$cred["dbname"]="cuestionario_db";
 
 
 function dbConexion($q,$tipo,$valor) {

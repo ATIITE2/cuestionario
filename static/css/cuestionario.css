@@ -167,7 +167,7 @@ display-flex, .select-icon, .select-icon i, .steps ul, .actions ul li a, .form-r
   .clear {
     clear: both; }
   
-  /* h3 {
+  /* h5 {
     font-size: 18px;
     font-weight: 700;
     color: #999999;
@@ -329,7 +329,7 @@ display-flex, .select-icon, .select-icon i, .steps ul, .actions ul li a, .form-r
     padding-right: 70px;
     padding-left: 80px;
     height: 410px; }
-    .content h3 {
+    .content h5 {
       display: none; }
   
   .steps {
@@ -363,11 +363,11 @@ display-flex, .select-icon, .select-icon i, .steps ul, .actions ul li a, .form-r
           font-weight: bold; }
         .steps ul li:hover:after {
           height: 3px; }
-        .steps ul li:hover a h3 {
+        .steps ul li:hover a h5 {
           color: #6dbdfe; }
       .steps ul .current:after {
         height: 3px; }
-      .steps ul .current a h3 {
+      .steps ul .current a h5 {
         color: #6dbdfe; }
   
   .actions {
@@ -446,7 +446,7 @@ display-flex, .select-icon, .select-icon i, .steps ul, .actions ul li a, .form-r
     display: block;
     width: 100%; }
   
-  #daily_budget {
+  #genero {
     z-index: 99; }
   
   .select-list li {

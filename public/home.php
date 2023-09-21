@@ -5,16 +5,21 @@
             <img class="img-fluid" src="static/media/logoite.png" alt="Instituto Tlaxcalteca de Elecciones">
         </div>
         <p class="Home__title">Instituto Tlaxcalteca de Elecciones</p>
-        <p class="Home__title-2">Cuestionario SAMPLE</p>
+        <p class="Home__title-2">
+            CUESTIONARIO DE CONSULTA PREVIA, PÚBLICA, ABIERTA, REGULAR, ESTRECHA, LIBRE E INFORMADA DIRIGIDA A PERSONAS CON DISCAPACIDAD 
+            EN MATERIA DE PARTICIPACIÓN Y REPRESENTACIÓN POLÍTICA, ACREDITACIÓN O NO DE LA DISCAPACIDAD PARA LA POSTULACIÓN EN CANDIDATURAS, E INCLUSIÓN EN LOS ÓRGANOS 
+            DESCONCENTRADOS DEL INSTITUTO TLAXCALTECA DE ELECCIONES, PARA EL PROCESO ELECTORAL LOCAL ORDINARIO 2023-2024
+        </p>
         <div class="ms-auto w-25">
             <img src="static/media/coronavirus.png" class="img-fluid Home__coronavirus w-50" alt="Coronavirus">
         </div>
         <h3 class="bottom-title">PRESENTACIÓN</h3>
-        <p>Ante las medidas sanitarias dictadas por las autoridades mexicanas, derivadas de la estrategia para el combate de la pandemia por el Covid 19, 
-            el Instituto Tlaxcalteca de Elecciones adoptó las medidas necesarias para garantizar la salud de quienes ahí colaboramos 
-            y de quiénes acuden a nuestras instalaciones; así como la operatividad de este órgano.
+        <p>
+            El objetivo del presente cuestionario es recibir opiniones, propuestas y planteamientos de las personas con discapacidad permanente en el estado de Tlaxcala, 
+            sobre las acciones en materia de fortalecimiento de la participación y representación política, la acreditación o no de la discapacidad permanente para acceder 
+            a una candidatura a un cargo de elección popular y la inclusión a órganos desconcentrados del Instituto lo cual dará sustento a las acciones afirmativas a implementarse 
+            en el Proceso Electoral Local Ordinario 2023- 2024.
         </p>
-        <p>En el presente micrositio ponemos a tu disposición información sobre la actividad institucional durante esta etapa de emergencia sanitaria.</p>
         <div class="mx-auto w-25">
             <img src="static/media/icon1.png" class="img-fluid" alt="#QuedateEnCasa">
             <p class="Home__title">#QuedateEnCasa</p>
@@ -24,7 +29,7 @@
 
     <div class="Acuerdos">
         <div class="Acuerdos__container">
-            <h3 class="bottom-title">AQUI VA A IR EL CUESTIONARIO.</h3>
+            <h3 class="bottom-title">CUESTIONARIO</h3>
             <!-- div class="row mt-3">
                 <div class="col-md-6">
                     <div class="Acuerdos__box"></div>
@@ -41,15 +46,25 @@
                 <div class="contenedor">
                     <form method="POST" id="cuestionario-form" class="needs-validation signup-form" enctype="multipart/form-data " novalidate>
                     <div id="result"></div>
-                        <h3>Datos generales</h3>
+                        <h5>Datos generales</h5>
                         <fieldset data-step="0">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" name="nombre" id="nombre" />
+                                    <label for="nombres">Nombre</label>
+                                    <input type="text" name="nombres" id="nombres" />
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ap_paterno">Apellido paterno</label>
+                                    <input type="text" name="ap_paterno" id="ap_paterno" />
                                     <div class="invalid-feedback"></div>
                                 </div>                                
-                                <div class="form-select _country">
+                                <div class="form-group">
+                                    <label for="ap_materno">Apellido materno</label>
+                                    <input type="text" name="ap_materno" id="ap_materno" />
+                                    <div class="invalid-feedback"></div>
+                                </div>                                                                
+                                <!-- div class="form-select _country">
                                     <span class="_country_title">País</span>
                                     <div class="select-group">
                                         <select name="country" id="country">
@@ -58,40 +73,53 @@
                                             <option value="US">Estados Unidos</option>
                                         </select>
                                     </div>
+                                </div -->
+                            </div>
+                            <div class="form-row">
+                                <div class="form-select _genero">
+                                    <span class="_genero_title">Género</span>
+                                    <div class="select-group">
+                                        <select name="genero" id="genero">
+                                            <option value=""></option>
+                                            <option value="0">Mujer</option>
+                                            <option value="1">Nombre</option>
+                                            <option value="2">No binario</option>
+                                            <option value="3">Otro (especifique)</option>
+                                            <option value="4">Prefiero no contestar</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="otro_genero">Especificar género</label>
+                                    <input type="text" name="otro_genero" id="otro_genero" />
+                                    <!-- div class="invalid-feedback"></div -->
+                                </div>
+                                <div class="form-group">
+                                    <label for="municipio">Municipio</label>
+                                    <input type="text" name="municipio" id="municipio" autocomplete="on" />
+                                    <div class="invalid-feedback"></div>
                                 </div>
                             </div>
                             <div class="form-row">
+                                <div class="form-group">
+                                    <label for="telefono">Número de contacto</label>
+                                    <input type="text" name="telefono" id="telefono" />
+                                    <div class="invalid-feedback"></div>
+                                </div>
                                 <div class="form-group">
                                     <label for="email">Correo electrónico</label>
                                     <input type="email" name="email" id="email" autocomplete="on" />
                                     <div class="invalid-feedback"></div>
                                 </div>
-                                <div class="form-select _daily_budget">
-                                    <span class="_daily_budget_title">Ingresos mensuales</span>
-                                    <div class="select-group">
-                                        <select name="daily_budget" id="daily_budget">
-                                            <option value=""></option>
-                                            <option value="40">MXN $40</option>
-                                            <option value="60">MXN $60</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="password">Contraseña</label>
-                                    <input type="password" name="password" id="password" autocomplete="on" />
-                                    <div class="invalid-feedback"></div>
-                                </div>
                             </div>
 
-                            <div class="form-check _checado">
+                            <!-- div class="form-check _checado">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term _checado_title"><span><span></span></span>Suscríbase al correo de noticias</label>
-                            </div>
+                            </div -->
                         </fieldset>
 
-                        <h3>Tipo de cuarto</h3>
+                        <h5>Información general</h5>
                         <fieldset data-step="1">
                             <div class="form-radio">
                                 <span class="radio-label">¿Qué tipo de cuarto desea?</span>
@@ -116,7 +144,7 @@
                             </div>
                         </fieldset>
 
-                        <h3>Otro cuarto</h3>
+                        <h5>Información a consultar 1</h5>
                         <fieldset data-step="2">
                             <div class="form-radio">
                                 <span class="radio-label">¿Qué otro tipo de cuarto desea?</span>
@@ -141,7 +169,7 @@
                             </div>
                         </fieldset>
 
-                        <h3>Opciones extras</h3>
+                        <h5>Información a consultar 2</h5>
                         <fieldset data-step="3">
                             <div class="form-textarea">
                                 <label for="room_description" class="radio-label">Descripción del cuarto</label>

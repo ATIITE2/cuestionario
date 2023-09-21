@@ -8,7 +8,7 @@ cntrlt [3] =0;
 $(document).ready(function() {
     $("#cuestionario-form")
     .steps({
-        headerTag: "h3",
+        headerTag: "h5",
         bodyTag: "fieldset",
         transitionEffect: "fade",
         labels: {
@@ -17,7 +17,7 @@ $(document).ready(function() {
             finish : 'Enviar',
             current : ''
         },
-        titleTemplate : '<h3 class="title">#title#</h3>',
+        titleTemplate : '<h5 class="title">#title#</h5>',
 
         // Triggered when clicking the Previous/Next buttons
         onStepChanging: function(event, currentIndex, newIndex) {
@@ -63,22 +63,22 @@ $(document).ready(function() {
         allOptions.toggle();
     });
 
-    $('#daily_budget').parent().append('<ul id="newdaily_budget" class="select-list" name="daily_budget"></ul>');
-    $('#daily_budget option').each(function(){
-        $('#newdaily_budget').append('<li value="' + $(this).val() + '">'+$(this).text()+'</li>');
+    $('#genero').parent().append('<ul id="newgenero" class="select-list" name="genero"></ul>');
+    $('#genero option').each(function(){
+        $('#newgenero').append('<li value="' + $(this).val() + '">'+$(this).text()+'</li>');
     });
-    $('#daily_budget').remove();
-    $('#newdaily_budget').attr('id', 'daily_budget');
-    $('#daily_budget li').first().addClass('init');
-    $("#daily_budget").on("click", ".init", function() {
-        $(this).closest("#daily_budget").children('li:not(.init)').toggle();
+    $('#genero').remove();
+    $('#newgenero').attr('id', 'genero');
+    $('#genero li').first().addClass('init');
+    $("#genero").on("click", ".init", function() {
+        $(this).closest("#genero").children('li:not(.init)').toggle();
     });
     
-    var DailyOptions = $("#daily_budget").children('li:not(.init)');
-    $("#daily_budget").on("click", "li:not(.init)", function() {
+    var DailyOptions = $("#genero").children('li:not(.init)');
+    $("#genero").on("click", "li:not(.init)", function() {
         DailyOptions.removeClass('selected');
         $(this).addClass('selected');
-        $("#daily_budget").children('.init').html($(this).html());
+        $("#genero").children('.init').html($(this).html());
         DailyOptions.toggle();
     });
 
@@ -113,7 +113,7 @@ $(document).ready(function() {
                         }
                         else {
                             $(data.error).addClass("is-invalid").focus();
-                            if (["._country","._daily_budget","._checado"].includes(data.error)) {
+                            if (["._country","._genero","._checado"].includes(data.error)) {
                                 $(data.error+"_title").html(data.mssg).addClass("invalid-msg");
                             }
                             else {
@@ -152,15 +152,15 @@ $(document).ready(function() {
                 }  
             });
     
-            list['daily_budget']="";
-            $("#daily_budget li").each(function(){
+            list['genero']="";
+            $("#genero li").each(function(){
                 if($(this).attr('class') === "selected") {
-                    list['daily_budget']= $(this).attr('value');
+                    list['genero']= $(this).attr('value');
                 }  
             });
     
             // console.log("Valor de la lista 1: "+obj['country']);
-            // console.log("Valor de la lista 2: "+obj['daily_budget']);
+            // console.log("Valor de la lista 2: "+obj['genero']);
     
             list['checado'] = ($("#agree-term").is(':checked')) ? 1 : 0;
     
@@ -188,7 +188,7 @@ $(document).ready(function() {
         $(".is-invalid").removeClass("is-invalid");
         $(".invalid-msg").removeClass("invalid-msg");
         $("._country_title").html("País");
-        $("._daily_budget_title").html("Ingresos mensuales");
+        $("._genero_title").html("Género");
         $("._checado_title").html("<span><span></span></span>Suscríbase al correo de noticias");
     }
 
@@ -237,7 +237,7 @@ $(document).ready(function() {
             $(this).removeClass("selected");
         });
 
-        $("#daily_budget li").each(function(){
+        $("#genero li").each(function(){
             if($(this).attr('class') === "init") $(this).html(" ");
             $(this).removeClass("selected");
         });
@@ -247,14 +247,3 @@ $(document).ready(function() {
     }
 
 });
-
-
-
-
-
-
-
-
-
-
-
