@@ -3,6 +3,7 @@ let cntrlt=[];
 cntrlt [0] =0;
 cntrlt [1] =0;
 cntrlt [2] =0;
+cntrlt [3] =0;
 
 $(document).ready(function() {
     $("#cuestionario-form")
@@ -23,7 +24,7 @@ $(document).ready(function() {
             
             /*var d=validaDatos(currentIndex);
             console.log("¿aqui que onda? "+d); */
-
+            
             validaDatos(currentIndex);
 
             return (cntrlt[currentIndex] === 1) ? true : false;
@@ -39,6 +40,7 @@ $(document).ready(function() {
         onFinished: function (event, currentIndex)
         {
             guardarDatos(-1);
+            $("#cuestionario-form-t-0").click();
         }
     });
 
@@ -80,158 +82,179 @@ $(document).ready(function() {
         DailyOptions.toggle();
     });
 
-});
 
-
-function validaDatos(indice){
+    function validaDatos(indice){
     
-    const form = $("#cuestionario-form");
-    var obj= new Object;
-
-    obj=cargaRespQuiz(indice); 
-
-    if(indice === 0){
-        cntrlt[1] =0;
-        cntrlt[2] =0;
+        const form = $("#cuestionario-form");
+        var obj= new Object;
+    
+        obj=cargaRespQuiz(indice); 
+    
+        var i;
+        for(i=0;i<=3;i++){
+            if(i !== indice) cntrlt[i] = 0;
+        }
+    
+        obj['indice'] = indice;
+    
+      
+        if (form.get(0).checkValidity()) {
+            $.ajax({
+                type: "POST",
+                url: "posts/revisa_reg.php",
+                data: obj,
+                cache: false,
+                success: function(data) {
+                    reinicia_revision();
+                    if(data.success === false) {
+                        cntrlt[indice]=0;
+                        if(data.error === false) {
+                            $("#result").attr("class", "alert alert-danger").html(data.mssg);          
+                        }
+                        else {
+                            $(data.error).addClass("is-invalid").focus();
+                            if (["._country","._daily_budget","._checado"].includes(data.error)) {
+                                $(data.error+"_title").html(data.mssg).addClass("invalid-msg");
+                            }
+                            else {
+                                $(data.error).next().html(data.mssg).addClass("del-msj");
+                            }              
+                        }
+                    }
+                    else {
+                        cntrlt[indice]=1; 
+                        /* $("#result").attr("class", "alert alert-success alert-dismissible fade show");
+                        $("#result").attr("role", "alert");
+                        $("#result").html("Que chido liro."); */
+                    }
+                }
+            });
+        }
+        else {
+            $("[data-step='"+indice+"']").focus();
+        }
+    
+        form.addClass("was-validated");
     }
 
-    if(indice === 1) {
-        cntrlt[0] =0;
-        cntrlt[2] =0;
+    function cargaRespQuiz(indice){
+        var list= new Object;
+    
+        if([0,-1].includes(indice)){
+            list['nombre'] = $("#nombre").val();
+            list['email'] = $("#email").val();
+            list['password'] = $("#password").val();
+    
+            list['country']="";
+            $("#country li").each(function(){
+                if($(this).attr('class') === "selected") {
+                    list['country']= $(this).attr('value');
+                }  
+            });
+    
+            list['daily_budget']="";
+            $("#daily_budget li").each(function(){
+                if($(this).attr('class') === "selected") {
+                    list['daily_budget']= $(this).attr('value');
+                }  
+            });
+    
+            // console.log("Valor de la lista 1: "+obj['country']);
+            // console.log("Valor de la lista 2: "+obj['daily_budget']);
+    
+            list['checado'] = ($("#agree-term").is(':checked')) ? 1 : 0;
+    
+            // console.log("Valor del check: "+obj['checado']);
+        }
+
+        if([1,-1].includes(indice)){
+            list['tipo_cuarto'] = $("input[name='room_type']:checked").val();
+        }
+
+        if([2,-1].includes(indice)){
+            list['tipo_cuarto2'] = $("input[name='room_type2']:checked").val();
+
+        }
+
+        if([3,-1].includes(indice)){
+            list['room_description'] = $("#room_description").val();
+        }
+    
+        return list;
     }
 
-    if(indice === 2) {
-        cntrlt[0] =0;
-        cntrlt[1] =0;
+    function reinicia_revision(){
+        $(".del-msj").html("");
+        $(".is-invalid").removeClass("is-invalid");
+        $(".invalid-msg").removeClass("invalid-msg");
+        $("._country_title").html("País");
+        $("._daily_budget_title").html("Ingresos mensuales");
+        $("._checado_title").html("<span><span></span></span>Suscríbase al correo de noticias");
     }
 
-    obj['indice'] = indice;
-
-  
-    if (form.get(0).checkValidity()) {
+    function guardarDatos(n){
+        var obj= new Object;
+        obj=cargaRespQuiz(n); 
+        obj['indice']=n;
+    
         $.ajax({
             type: "POST",
-            url: "posts/revisa_reg.php",
+            url: "posts/guarda_reg.php",
             data: obj,
             cache: false,
             success: function(data) {
-                reinicia_revision();
-                if(data.success === false) {
-                    cntrlt[indice]=0;
-                    if(data.error === false) {
-                        $("#result").attr("class", "alert alert-danger").html(data.mssg);          
-                    }
-                    else {
-                        $(data.error).addClass("is-invalid").focus();
-                        if (["._country","._daily_budget","._checado"].includes(data.error)) {
-                            $(data.error+"_title").html(data.mssg).addClass("invalid-msg");
-                        }
-                        else {
-                            $(data.error).next().html(data.mssg).addClass("del-msj");
-                        }              
-                    }
+                var titulo = "";
+                var resp = false;
+                if(data.success === true) {
+                    titulo="¡EXITO!";
+                    resp=true;
+                    limpiaCampos();
                 }
                 else {
-                    cntrlt[indice]=1; 
+                    titulo="Error al guardar respuestas ...";
                     /* $("#result").attr("class", "alert alert-success alert-dismissible fade show");
                     $("#result").attr("role", "alert");
                     $("#result").html("Que chido liro."); */
                 }
+                $("#modal_uno_titulo").html(titulo);
+                $("#modal_uno_msj").html(data.msj);
+                $("#modal_uno").modal('show');
+                
+                //crearMsj(msj);
+                //resp=data.success;
+                console.log("dato 1: "+resp);
+                if(!resp) alert("Algo malo ocurrió.");
             }
         });
     }
-    else {
-        $("[data-step='"+indice+"']").focus();
-    }
 
-    form.addClass("was-validated");
+    function limpiaCampos(){
+        const form = $("#cuestionario-form");
+        form[0].reset();
 
-    //return (cntrlt[indice] === 1) ? true : false;
-}
-
-
-function cargaRespQuiz(indice){
-    var list= new Object;
-
-    if([0,-1].includes(indice)){
-        list['nombre'] = $("#nombre").val();
-        list['email'] = $("#email").val();
-        list['password'] = $("#password").val();
-
-        list['country']="";
         $("#country li").each(function(){
-            if($(this).attr('class') === "selected") {
-                list['country']= $(this).attr('value');
-            }  
+            if($(this).attr('class') === "init") $(this).html(" ");
+            $(this).removeClass("selected");
         });
 
-        list['daily_budget']="";
         $("#daily_budget li").each(function(){
-            if($(this).attr('class') === "selected") {
-                list['daily_budget']= $(this).attr('value');
-            }  
+            if($(this).attr('class') === "init") $(this).html(" ");
+            $(this).removeClass("selected");
         });
 
-        // console.log("Valor de la lista 1: "+obj['country']);
-        // console.log("Valor de la lista 2: "+obj['daily_budget']);
-
-        list['checado'] = ($("#agree-term").is(':checked')) ? 1 : 0;
-
-        // console.log("Valor del check: "+obj['checado']);
-    }
-    if([1,-1].includes(indice)){
-        list['tipo_cuarto'] = $("input[name='room_type']:checked").val();
-
-        // console.log("Valor del radio: "+obj['tipo_cuarto']);
-    }
-    if([2,-1].includes(indice)){
-        list['room_description'] = $("#room_description").val();
+        // Disable other Tabs  
+        $('.done').removeClass('done').addClass('disabled');
     }
 
-    return list;
-}
+});
 
-function reinicia_revision(){
-    $(".del-msj").html("");
-    $(".is-invalid").removeClass("is-invalid");
-    $(".invalid-msg").removeClass("invalid-msg");
-    $("._country_title").html("País");
-    $("._daily_budget_title").html("Ingresos mensuales");
-    $("._checado_title").html("<span><span></span></span>Suscríbase al correo de noticias");
-}
 
-function guardarDatos(n){
-    var obj= new Object;
-    obj=cargaRespQuiz(n); 
-    obj['indice']=n;
 
-    $.ajax({
-        type: "POST",
-        url: "posts/guarda_reg.php",
-        data: obj,
-        cache: false,
-        success: function(data) {
 
-            var msj = "";
-            var resp = false;
-            if(data.success === true) {
-                msj="EXITO! "+data.msj;
-                resp=true;
-            }
-            else {
-                msj="Chale! Hubo un error "+data.msj;
-                /* $("#result").attr("class", "alert alert-success alert-dismissible fade show");
-                $("#result").attr("role", "alert");
-                $("#result").html("Que chido liro."); */
-            }
-            crearMsj(msj);
-            //resp=data.success;
-            console.log("dato 1: "+resp);
-            if(!resp) alert("Algo malo ocurrió.");
-        }
-    });
-}
 
-function crearMsj(msj){
-    alert(msj);
-}
+
+
+
+
+
+

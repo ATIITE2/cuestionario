@@ -54,7 +54,7 @@ function dbConexionGuardar($q,$tipos,$valores,$cual){
   }
 
   if($cual == 2){
-    $stmt->bind_param($tipos, $valores['usuario_id'], $valores['country'], $valores['daily_budget'], $valores['checado'], $valores['tipo_cuarto'], $valores['room_description']);
+    $stmt->bind_param($tipos, $valores['usuario_id'], $valores['country'], $valores['daily_budget'], $valores['checado'], $valores['tipo_cuarto'], $valores['tipo_cuarto2'], $valores['room_description']);
   }
 
   if($stmt->execute()) $resp=isset($stmt->insert_id) ? intval($stmt->insert_id) : 0;

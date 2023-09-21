@@ -89,7 +89,15 @@ if($_POST['indice'] == 1) {
     }
 }
 
-if($_POST['indice'] == 2) {
+if($_POST['indice'] == 2) { 
+    if(empty($_POST['tipo_cuarto2'])){
+        $error = '._cuarto2';
+        $mssg = "El tipo del otro cuarto no esta seleccionado";
+        $success=false;
+    }
+}
+
+if($_POST['indice'] == 3) {
     if(empty($_POST['room_description'])){
         $error = '#room_description';
         $mssg = "La descripción del cuarto no debe estar vacía";

@@ -17,6 +17,7 @@ if($_POST['indice'] == -1){
     $respuestas['daily_budget']= $_POST['daily_budget'];
     $respuestas['checado'] =     $_POST['checado'];
     $respuestas['tipo_cuarto'] = $_POST['tipo_cuarto'];
+    $respuestas['tipo_cuarto2'] = $_POST['tipo_cuarto2'];
     $respuestas['room_description'] = $_POST['room_description'];
 
 
@@ -29,10 +30,10 @@ if($_POST['indice'] == -1){
     else {
         $respuestas['usuario_id']=$r;
 
-        $q2="INSERT INTO respuestas(usuario_id, country, daily_budget, agree_term, room_type, room_description)
-        VALUES(?, ?, ?, ?, ?, ?)";
+        $q2="INSERT INTO respuestas(usuario_id, country, daily_budget, agree_term, room_type, room_type2, room_description)
+        VALUES(?, ?, ?, ?, ?, ?, ?)";
         
-        $r2=dbConexionGuardar($q2,"isssss",$respuestas,2);
+        $r2=dbConexionGuardar($q2,"issssss",$respuestas,2);
 
         if(!is_numeric($r2)) $msj=$r2;
         else {

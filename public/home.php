@@ -41,9 +41,7 @@
                 <div class="contenedor">
                     <form method="POST" id="cuestionario-form" class="needs-validation signup-form" enctype="multipart/form-data " novalidate>
                     <div id="result"></div>
-                        <h3>
-                            Datos generales
-                        </h3>
+                        <h3>Datos generales</h3>
                         <fieldset data-step="0">
                             <div class="form-row">
                                 <div class="form-group">
@@ -61,15 +59,6 @@
                                         </select>
                                     </div>
                                 </div>
-                                
-                                <!-- div class="form-select">
-                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                                </div -->
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
@@ -102,9 +91,7 @@
                             </div>
                         </fieldset>
 
-                        <h3>
-                            Tipo de cuarto
-                        </h3>
+                        <h3>Tipo de cuarto</h3>
                         <fieldset data-step="1">
                             <div class="form-radio">
                                 <span class="radio-label">¿Qué tipo de cuarto desea?</span>
@@ -129,10 +116,33 @@
                             </div>
                         </fieldset>
 
-                        <h3>
-                            Opciones extras
-                        </h3>
+                        <h3>Otro cuarto</h3>
                         <fieldset data-step="2">
+                            <div class="form-radio">
+                                <span class="radio-label">¿Qué otro tipo de cuarto desea?</span>
+                                <div class="form-radio-group _cuarto2">            
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="room_type2" id="chico" value="1">
+                                        <label for="chico">Chico</label>
+                                        <span class="check"></span>
+                                    </div>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="room_type2" id="mediano" value="2">
+                                        <label for="mediano">Mediano</label>
+                                        <span class="check"></span>
+                                    </div>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="room_type2" id="grande" value="3">
+                                        <label for="grande">Grande</label>
+                                        <span class="check"></span>
+                                    </div>
+                                </div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </fieldset>
+
+                        <h3>Opciones extras</h3>
+                        <fieldset data-step="3">
                             <div class="form-textarea">
                                 <label for="room_description" class="radio-label">Descripción del cuarto</label>
                                 <textarea name="room_description" id="room_description" placeholder="Ejemplo: El cuarto debe tener . . ."></textarea>
@@ -140,6 +150,25 @@
                             </div>
                         </fieldset>
                     </form>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modal_uno" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modal_uno_titulo"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" onclick="$('#modal_uno').modal('hide')">&times;</span>
+                                </button>
+                            </div>
+                        <div class="modal-body" id="modal_uno_msj"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#modal_uno').modal('hide')">Cerrar</button>
+                            <!--button type="button" class="btn btn-primary">guardar cambios</button -->
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
