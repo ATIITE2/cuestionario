@@ -21,24 +21,24 @@ $(document).ready(function() {
         // Triggered when clicking the Previous/Next buttons
         onStepChanging: function(event, currentIndex, newIndex) {
             
-            return validaDatos(currentIndex);
+            /*var d=validaDatos(currentIndex);
+            console.log("¿aqui que onda? "+d); */
+
+            validaDatos(currentIndex);
+
+            return (cntrlt[currentIndex] === 1) ? true : false;
         },
 
         onFinishing: function(event, currentIndex) {
 
-            return validaDatos(currentIndex);
+            validaDatos(currentIndex);
+
+            return (cntrlt[currentIndex] === 1) ? true : false;
         },
 
         onFinished: function (event, currentIndex)
         {
-            let valores = new Object; 
-            valores =guardarDatos();
-
-            console.log("Dato 2: "+ valores['guardo']);
-
-            if (valores['guardo'] === false) alert('Algo raro pasó por aquí.');
-
-            alert(valores['msj']);
+            guardarDatos(-1);
         }
     });
 
@@ -132,7 +132,7 @@ function validaDatos(indice){
                     }
                 }
                 else {
-                    cntrlt[indice]=1;
+                    cntrlt[indice]=1; 
                     /* $("#result").attr("class", "alert alert-success alert-dismissible fade show");
                     $("#result").attr("role", "alert");
                     $("#result").html("Que chido liro."); */
@@ -146,7 +146,7 @@ function validaDatos(indice){
 
     form.addClass("was-validated");
 
-    return (cntrlt[indice] === 1) ? true : false;
+    //return (cntrlt[indice] === 1) ? true : false;
 }
 
 
@@ -200,10 +200,10 @@ function reinicia_revision(){
     $("._checado_title").html("<span><span></span></span>Suscríbase al correo de noticias");
 }
 
-function guardarDatos(){
+function guardarDatos(n){
     var obj= new Object;
-    obj=cargaRespQuiz(-1); 
-    obj['indice']=-1;
+    obj=cargaRespQuiz(n); 
+    obj['indice']=n;
 
     $.ajax({
         type: "POST",
@@ -212,19 +212,26 @@ function guardarDatos(){
         cache: false,
         success: function(data) {
 
-            var resp = new Object
+            var msj = "";
+            var resp = false;
             if(data.success === true) {
-                resp['msj']="EXITO! "+data.msj;
+                msj="EXITO! "+data.msj;
+                resp=true;
             }
             else {
-                resp['msj']="Chale! Hubo un error "+data.msj;
+                msj="Chale! Hubo un error "+data.msj;
                 /* $("#result").attr("class", "alert alert-success alert-dismissible fade show");
                 $("#result").attr("role", "alert");
                 $("#result").html("Que chido liro."); */
             }
-            resp['guardo']=data.success;
-            console.log("dato: "+resp['guardo']);
-            return resp;
+            crearMsj(msj);
+            //resp=data.success;
+            console.log("dato 1: "+resp);
+            if(!resp) alert("Algo malo ocurrió.");
         }
     });
+}
+
+function crearMsj(msj){
+    alert(msj);
 }
