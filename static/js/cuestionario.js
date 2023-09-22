@@ -6,6 +6,9 @@ cntrlt[2] =0;
 cntrlt[3] =0;
 cntrlt[4] =0;
 cntrlt[5] =0;
+cntrlt[6] =0;
+cntrlt[7] =0;
+cntrlt[8] =0;
 
 $(document).ready(function() {
     $("#cuestionario-form")
@@ -107,7 +110,7 @@ $(document).ready(function() {
         obj=cargaRespQuiz(indice); 
     
         var i;
-        for(i=0;i<=5;i++){
+        for(i=0;i<=8;i++){
             if(i !== indice) cntrlt[i] = 0;
         }
     
@@ -192,7 +195,7 @@ $(document).ready(function() {
             list['disc_sensorial'] = ($("#disc_sensorial").is(':checked')) ? 1 : 0;
 
             var vpd=$("input[name='vinculo_persona_disc']:checked").val();
-            list['vinculo_persona_disc'] = ( vpd!== undefined) ? dp : -1;
+            list['vinculo_persona_disc'] = ( vpd!== undefined) ? vpd : -1;
 
             list['nombre_asoc_agrup'] = $("#nombre_asoc_agrup").val();
 
@@ -212,9 +215,38 @@ $(document).ready(function() {
             list['capacitar_pcd'] =  ($("#capacitar_pcd").is(':checked')) ? 1 : 0;
             list['sensib_disc'] =  ($("#sensib_disc").is(':checked')) ? 1 : 0;
             list['otra_propuesta'] =  ($("#otra_propuesta").is(':checked')) ? 1 : 0;
-            list['otra_prop_txt'] =  ($("#otra_prop_txt").is(':checked')) ? 1 : 0;
+            list['otra_prop_txt'] = $("#otra_prop_txt").val();
 
         }
+
+        if([4,-1].includes(indice)){
+            var ic=$("input[name='integrar_consejos']:checked").val();
+            list['integrar_consejos'] = ( ic!== undefined) ? ic : -1;
+            list['porque_sn_integrar'] = $("#porque_sn_integrar").val();
+        }
+
+        if([5,-1].includes(indice)){
+            var ac=$("input[name='acred_disc']:checked").val();
+            list['acred_disc'] = ( ac!== undefined) ? ac : -1;
+            list['porque_sn_acreditar'] = $("#porque_sn_acreditar").val();
+        }
+
+        if([6,-1].includes(indice)){
+
+            
+
+
+
+
+
+
+        }
+
+
+        
+
+
+
     
         return list;
     }
@@ -317,11 +349,12 @@ function muestraOpciones1(n){
     }
   }
 
-  function muestraCampo2(num){
-        
-    if(num === 1) $("#campo_otra_propuesta").removeClass("hide").addClass("show"); 
+  function muestraCampo2(e1, e2, e3){
+    var n=($("#"+e1).is(':checked')) ? 1 : 0;
+
+    if(n === 1) $("#"+e2).removeClass("hide").addClass("show"); 
     else {
-        $("#campo_otra_propuesta").removeClass("show").addClass("hide");
-        $("#otra_prop_txt").val("");
+        $("#"+e2).removeClass("show").addClass("hide");
+        $("#"+e3).val("");
     }
   }

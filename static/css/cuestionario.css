@@ -231,7 +231,13 @@ display-flex, .select-icon, .select-icon i, .steps ul, .actions ul li a, .form-r
   
   #room_description, #barreras_retos {
     height: 150px;
-    margin-top: 22px; }
+    margin-top: 22px;
+  }
+  
+  #porque_sn_integrar, #porque_sn_acreditar {
+    height: 57px;
+    margin-top: 22px;
+  }
   
   .select-icon {
     z-index: 0;
