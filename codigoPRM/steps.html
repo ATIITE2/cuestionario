@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <form id="multi-step-form">
+            <div class="card" id="step1">
+                <div class="card-header">Paso 1 de 4</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="field1">Campo 1:</label>
+                        <input type="text" class="form-control" id="field1" name="field1" required>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <button type="button" class="btn btn-primary next-step">Siguiente</button>
+                </div>
+            </div>
+            <div class="card" id="step2">
+                <div class="card-header">Paso 2 de 4</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="field2">Campo 2:</label>
+                        <input type="text" class="form-control" id="field2" name="field2" required>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <button type="button" class="btn btn-secondary prev-step">Anterior</button>
+                    <button type="button" class="btn btn-primary next-step">Siguiente</button>
+                </div>
+            </div>
+            <div class="card" id="step3">
+                <div class="card-header">Paso 3 de 4</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="field3">Campo 3:</label>
+                        <input type="text" class="form-control" id="field3" name="field3" required>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <button type="button" class="btn btn-secondary prev-step">Anterior</button>
+                    <button type="button" class="btn btn-primary next-step">Siguiente</button>
+                </div>
+            </div>
+            <div class="card" id="step4">
+                <div class="card-header">Paso 4 de 4</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="field4">Campo 4:</label>
+                        <input type="text" class="form-control" id="field4" name="field4" required>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <button type="button" class="btn btn-secondary prev-step">Anterior</button>
+                    <button type="button" class="btn btn-primary next-step">Siguiente</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        $(document).ready(function () {
+            var form = $("#multi-step-form");
+            var currentStep = 0;
+            var steps = form.find(".card");
+
+            steps.not(":first").hide();
+
+            $(".next-step").click(function () {
+                var currentCard = steps.eq(currentStep);
+                var nextCard = steps.eq(currentStep + 1);
+
+                // Validar campos requeridos en el paso actual
+                var requiredFields = currentCard.find('[required]');
+                var valid = true;
+                requiredFields.each(function () {
+                    if (!$(this).val()) {
+                        valid = false;
+                        $(this).addClass('is-invalid');
+                    } else {
+                        $(this).removeClass('is-invalid');
+                    }
+                });
+
+                if (valid) {
+                    currentCard.hide();
+                    currentStep++;
+                    nextCard.show();
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Campos requeridos',
+                        text: 'Aún necesita rellenar campos requeridos.',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+
+            $(".prev-step").click(function () {
+                if (currentStep > 0) {
+                    var currentCard = steps.eq(currentStep);
+                    var prevCard = steps.eq(currentStep - 1);
+
+                    currentCard.hide();
+                    currentStep--;
+                    prevCard.show();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
