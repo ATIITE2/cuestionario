@@ -157,9 +157,9 @@ body {
   text-align: justify !important;
 }
 
-.App__container {
+/* .App__container {
   margin: auto;
-}
+} */
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox=%270 0 32 32%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath stroke=%27rgba%28255,255,255, 0.5%29%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 d=%27M4 8h24M4 16h24M4 24h24%27/%3E%3C/svg%3E") !important;
