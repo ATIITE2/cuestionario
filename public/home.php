@@ -80,19 +80,19 @@
                                     <span class="_genero_title">Género</span>
                                     <div class="select-group">
                                         <select name="genero" id="genero">
-                                            <option value=""></option>
+                                            <option value="-1"></option>
                                             <option value="0">Mujer</option>
-                                            <option value="1">Nombre</option>
+                                            <option value="1">Hombre</option>
                                             <option value="2">No binario</option>
                                             <option value="3">Otro (especifique)</option>
                                             <option value="4">Prefiero no contestar</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group collapse hide" id="campo_genero">
                                     <label for="otro_genero">Especificar género</label>
                                     <input type="text" name="otro_genero" id="otro_genero" />
-                                    <!-- div class="invalid-feedback"></div -->
+                                    <div class="invalid-feedback"></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="municipio">Municipio</label>
@@ -122,31 +122,78 @@
                         <h5>Información general</h5>
                         <fieldset data-step="1">
                             <div class="form-radio">
-                                <span class="radio-label">¿Qué tipo de cuarto desea?</span>
-                                <div class="form-radio-group _cuarto">            
+                                <span class="radio-label">¿Es usted una persona con discapacidad permanente?</span>
+                                <div class="form-radio-group _discap_permanente">            
                                     <div class="form-radio-item">
-                                        <input type="radio" name="room_type" id="single_room" value="1">
-                                        <label for="single_room">Cuarto sencillo</label>
+                                        <input type="radio" name="discap_permanente" id="resp_si" value="1" onclick="muestraOpciones1(0);">
+                                        <label for="resp_si">Sí</label>
                                         <span class="check"></span>
                                     </div>
                                     <div class="form-radio-item">
-                                        <input type="radio" name="room_type" id="family_room" value="2">
-                                        <label for="family_room">Cuarto familiar</label>
-                                        <span class="check"></span>
-                                    </div>
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="room_type" id="business_room" value="3">
-                                        <label for="business_room">Cuarto ejecutivo</label>
+                                        <input type="radio" name="discap_permanente" id="resp_no" value="0" onclick="muestraOpciones1(1);">
+                                        <label for="resp_no">No</label>
                                         <span class="check"></span>
                                     </div>
                                 </div>
                                 <div class="invalid-feedback"></div>
                             </div>
+
+                            <div class="form-radio collapse hide" id="tipo_discap">
+                                <span class="radio-label">¿Qué tipo de discapacidad presenta? (Marque una o varias opciones)</span>
+                                <div class="form-radio-group _tipo_discap">            
+                                    <div class="form-check">
+                                        <input type="checkbox" name="disc_fisica" id="disc_fisica" class="agree-term" />
+                                        <label for="disc_fisica" class="label-discapacidad _disc_fisica_title"><span><span></span></span>Discapacidad física</label>
+                                        <input type="checkbox" name="disc_mental" id="disc_mental" class="agree-term" />
+                                        <label for="disc_mental" class="label-discapacidad "><span><span></span></span>Discapacidad mental</label>
+                                        <input type="checkbox" name="disc_intelectual" id="disc_intelectual" class="agree-term" />
+                                        <label for="disc_intelectual" class="label-discapacidad "><span><span></span></span>Discapacidad intelectual</label>
+                                        <input type="checkbox" name="disc_sensorial" id="disc_sensorial" class="agree-term" />
+                                        <label for="disc_sensorial" class="label-discapacidad "><span><span></span></span>Discapacidad sensorial</label>
+                                    </div>
+                                </div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+
+                            <div class="form-radio collapse hide" id="especif_vinculo">
+                                <span class="radio-label">Especifique su vínculo con la persona con discapacidad</span>
+                                <div class="form-radio-group _vinculo_persona_disc">
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="vinculo_persona_disc" id="opcion_0" value="0" onclick="muestraCampo1(0);">
+                                        <label for="opcion_0">Familiar</label>
+                                        <span class="check"></span>
+                                    </div>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="vinculo_persona_disc" id="opcion_1" value="1" onclick="muestraCampo1(0);">
+                                        <label for="opcion_1">Cuidador</label>
+                                        <span class="check"></span>
+                                    </div>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="vinculo_persona_disc" id="opcion_2" value="2" onclick="muestraCampo1(1);">
+                                        <label for="opcion_2">Integrante o representante de una asociación o agrupación de personas con discapacidad</label>
+                                        <span class="check"></span>
+                                    </div> 
+                                </div>
+                                <div class="form-group collapse hide" id="campo_asociacion">
+                                    <label for="nombre_asoc_agrup">Indique el nombre de la asociación o agrupación.</label>
+                                    <input type="text" name="nombre_asoc_agrup" id="nombre_asoc_agrup" />
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
                         </fieldset>
 
                         <h5>Información a consultar 1</h5>
                         <fieldset data-step="2">
-                            <div class="form-radio">
+                        <div class="form-textarea">
+                                <label for="barreras_retos" class="radio-label">1.1	Si es una persona con discapacidad permanente ¿A qué barreras o retos se ha enfrentado para ejercer tus derechos políticos electorales?</label>
+                                <textarea name="barreras_retos" id="barreras_retos" placeholder="Escribir aquí"></textarea>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                         
+                            <!--div class="form-radio">
                                 <span class="radio-label">¿Qué otro tipo de cuarto desea?</span>
                                 <div class="form-radio-group _cuarto2">            
                                     <div class="form-radio-item">
@@ -166,11 +213,56 @@
                                     </div>
                                 </div>
                                 <div class="invalid-feedback"></div>
-                            </div>
+                            </div -->
+
+
+
                         </fieldset>
 
                         <h5>Información a consultar 2</h5>
                         <fieldset data-step="3">
+                            <div class="form-radio">
+                                <span class="radio-label">1.2  ¿Cuáles podrían ser algunas propuestas o acciones para promover la participación y representación política de las personas con discapacidad en Tlaxcala?</span>
+                                <div class="form-radio-group _prop_acciones">            
+                                    <div class="form-check">
+                                        <input type="checkbox" name="incl_personas" id="incl_personas" class="agree-term" onclick="muestraCampo2(0);" />
+                                        <label for="incl_personas" class="label-discapacidad _incl_personas_title"><span><span></span></span>Impulsar la participación e inclusión de las personas con discapacidad en los partidos políticos.</label>     
+                                        <input type="checkbox" name="foros_event" id="foros_event" class="agree-term" onclick="muestraCampo2(0);" />
+                                        <label for="foros_event" class="label-discapacidad "><span><span></span></span>Realizar foros o eventos sobre participación y representación política dirigidos a personas con discapacidad.</label>
+                                        <input type="checkbox" name="capacitar_pcd" id="capacitar_pcd" class="agree-term" onclick="muestraCampo2(0);" />
+                                        <label for="capacitar_pcd" class="label-discapacidad "><span><span></span></span>Capacitación de las personas con discapacidad a través de las organizaciones de la sociedad civil en la materia.</label>
+                                        <input type="checkbox" name="sensib_disc" id="sensib_disc" class="agree-term" onclick="muestraCampo2(0);" />
+                                        <label for="sensib_disc" class="label-discapacidad "><span><span></span></span>Sensibilización a partidos políticos en temas de discapacidad.</label>
+                                        <input type="checkbox" name="otra_propuesta" id="otra_propuesta" class="agree-term" onclick="muestraCampo2(1);" />
+                                        <label for="otra_propuesta" class="label-discapacidad "><span><span></span></span>Otra, especifique cuál</label>
+
+                                        <div class="form-group collapse hide" id="campo_otra_propuesta">
+                                            <label for="otra_prop_txt">Escriba otra propuesta</label>
+                                            <input type="text" name="otra_prop_txt" id="otra_prop_txt" />
+                                        </div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="invalid-feedback"></div>
+                            </div>    
+                        
+                        
+
+
+
+                        </fieldset>
+
+                        <h5>Información a consultar 3</h5>
+                        <fieldset data-step="4">
+                            <div class="form-textarea">
+                                <label for="room_description" class="radio-label">Descripción del cuarto</label>
+                                <textarea name="room_description" id="room_description" placeholder="Ejemplo: El cuarto debe tener . . ."></textarea>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </fieldset>
+
+                        <h5>Información a consultar 4</h5>
+                        <fieldset data-step="5">
                             <div class="form-textarea">
                                 <label for="room_description" class="radio-label">Descripción del cuarto</label>
                                 <textarea name="room_description" id="room_description" placeholder="Ejemplo: El cuarto debe tener . . ."></textarea>

@@ -1,6 +1,6 @@
 <?php 
 
-$casa=false;
+$casa=true;
 $cred = array();
 
 $cred["dbhost"]="localhost";

@@ -10,15 +10,44 @@ $msj="No se guardaron datos";
 $respuestas = array();
 if($_POST['indice'] == -1){
 
-    $respuestas['nombre'] =      $_POST['nombre'];
+    $respuestas['nombres'] =      $_POST['nombres'];
+    $respuestas['ap_paterno'] =      $_POST['ap_paterno'];
+    $respuestas['ap_materno'] =      $_POST['ap_materno'];
+    $respuestas['genero'] =      $_POST['genero'];
+    $respuestas['otro_genero'] =      $_POST['otro_genero'];
+    $respuestas['municipio'] =      $_POST['municipio'];
+    $respuestas['telefono'] =      $_POST['telefono'];
     $respuestas['email'] =       $_POST['email'];
-    $respuestas['password'] =    $_POST['password'];
-    $respuestas['country'] =     $_POST['country'];
-    $respuestas['daily_budget']= $_POST['daily_budget'];
-    $respuestas['checado'] =     $_POST['checado'];
-    $respuestas['tipo_cuarto'] = $_POST['tipo_cuarto'];
+
+
+    $respuestas['discap_permanente'] = $_POST['discap_permanente']; 
+    $respuestas['disc_fisica'] = $_POST['disc_fisica'];
+    $respuestas['disc_mental'] = $_POST['disc_mental'];
+    $respuestas['disc_intelectual'] = $_POST['disc_intelectual'];
+    $respuestas['disc_sensorial'] = $_POST['disc_sensorial'];     
+    $respuestas['vinculo_persona_disc'] = $_POST['vinculo_persona_disc'];
+    $respuestas['nombre_asoc_agrup'] = $_POST['nombre_asoc_agrup'];
+
+    $respuestas['barreras_retos'] = $_POST['barreras_retos'];
+
+    $respuestas['incl_personas'] = $_POST['incl_personas'];
+    $respuestas['foros_event'] = $_POST['foros_event'];
+    $respuestas['capacitar_pcd'] = $_POST['capacitar_pcd'];
+    $respuestas['sensib_disc'] = $_POST['sensib_disc'];
+    $respuestas['otra_propuesta'] = $_POST['otra_propuesta'];
+    $respuestas['otra_prop_txt'] = $_POST['otra_prop_txt'];
+
+// me quede en la pregunta 1.3
+
+
+
+
+
+
+    
+    /*$respuestas['tipo_cuarto'] = $_POST['tipo_cuarto'];
     $respuestas['tipo_cuarto2'] = $_POST['tipo_cuarto2'];
-    $respuestas['room_description'] = $_POST['room_description'];
+    $respuestas['room_description'] = $_POST['room_description']; */
 
 
     $q1="INSERT INTO usuarios(nombre, email, password)

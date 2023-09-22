@@ -229,7 +229,7 @@ display-flex, .select-icon, .select-icon i, .steps ul, .actions ul li a, .form-r
       color: #999;
       font-size: 13px; }
   
-  #room_description {
+  #room_description, #barreras_retos {
     height: 150px;
     margin-top: 22px; }
   
@@ -278,8 +278,8 @@ display-flex, .select-icon, .select-icon i, .steps ul, .actions ul li a, .form-r
   
   input[type=checkbox]:not(old) + label {
     display: inline-block;
-    margin-top: 7px;
-    margin-bottom: 25px; }
+    margin-top: 4px;
+    margin-bottom: 3px; }
   
   input[type=checkbox]:not(old) + label > span {
     display: inline-block;
@@ -316,6 +316,10 @@ display-flex, .select-icon, .select-icon i, .steps ul, .actions ul li a, .form-r
   .label-agree-term {
     font-weight: 400;
     font-size: 13px; }
+
+    .label-discapacidad {
+      font-weight: 400;
+      font-size: 14px; }
   
   fieldset {
     border: none;
