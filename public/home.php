@@ -175,12 +175,12 @@
                                         <span class="check"></span>
                                     </div> 
                                 </div>
+                                <div class="invalid-feedback"></div>
                                 <div class="form-group collapse hide" id="campo_asociacion">
                                     <label for="nombre_asoc_agrup">Indique el nombre de la asociación o agrupación.</label>
                                     <input type="text" name="nombre_asoc_agrup" id="nombre_asoc_agrup" />
                                     <div class="invalid-feedback"></div>
-                                </div>
-                                <div class="invalid-feedback"></div>
+                                </div>   
                             </div>
 
                         </fieldset>
@@ -225,15 +225,15 @@
                                 <span class="radio-label">1.2  ¿Cuáles podrían ser algunas propuestas o acciones para promover la participación y representación política de las personas con discapacidad en Tlaxcala?</span>
                                 <div class="form-radio-group _prop_acciones">            
                                     <div class="form-check">
-                                        <input type="checkbox" name="incl_personas" id="incl_personas" class="agree-term" onclick="muestraCampo2(0);" />
+                                        <input type="checkbox" name="incl_personas" id="incl_personas" class="agree-term" />
                                         <label for="incl_personas" class="label-discapacidad _incl_personas_title"><span><span></span></span>Impulsar la participación e inclusión de las personas con discapacidad en los partidos políticos.</label>     
-                                        <input type="checkbox" name="foros_event" id="foros_event" class="agree-term" onclick="muestraCampo2(0);" />
+                                        <input type="checkbox" name="foros_event" id="foros_event" class="agree-term" />
                                         <label for="foros_event" class="label-discapacidad "><span><span></span></span>Realizar foros o eventos sobre participación y representación política dirigidos a personas con discapacidad.</label>
-                                        <input type="checkbox" name="capacitar_pcd" id="capacitar_pcd" class="agree-term" onclick="muestraCampo2(0);" />
+                                        <input type="checkbox" name="capacitar_pcd" id="capacitar_pcd" class="agree-term" />
                                         <label for="capacitar_pcd" class="label-discapacidad "><span><span></span></span>Capacitación de las personas con discapacidad a través de las organizaciones de la sociedad civil en la materia.</label>
-                                        <input type="checkbox" name="sensib_disc" id="sensib_disc" class="agree-term" onclick="muestraCampo2(0);" />
+                                        <input type="checkbox" name="sensib_disc" id="sensib_disc" class="agree-term" />
                                         <label for="sensib_disc" class="label-discapacidad "><span><span></span></span>Sensibilización a partidos políticos en temas de discapacidad.</label>
-                                        <input type="checkbox" name="otra_propuesta" id="otra_propuesta" class="agree-term" onclick="muestraCampo2(1);" />
+                                        <input type="checkbox" name="otra_propuesta" id="otra_propuesta" class="agree-term" onclick="muestraCampo2('otra_propuesta','campo_otra_propuesta','otra_prop_txt');" />
                                         <label for="otra_propuesta" class="label-discapacidad "><span><span></span></span>Otra, especifique cuál</label>
 
                                         <div class="form-group collapse hide" id="campo_otra_propuesta">
@@ -244,31 +244,106 @@
                                     </div>
                                 </div>
                                 <div class="invalid-feedback"></div>
-                            </div>    
-                        
-                        
-
-
-
+                            </div>
                         </fieldset>
 
                         <h5>Información a consultar 3</h5>
                         <fieldset data-step="4">
+                            <div class="form-radio">
+                                <span class="radio-label">1.3 ¿Considera necesario que las personas con discapacidad que deseen integrar los Consejos Distritales o municipales acrediten su discapacidad permanente con algún documento?</span>
+                                <div class="form-radio-group _integrar_consejos">            
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="integrar_consejos" id="resp_si_1" value="1">
+                                        <label for="resp_si_1">Sí</label>
+                                        <span class="check"></span>
+                                    </div>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="integrar_consejos" id="resp_no_1" value="0">
+                                        <label for="resp_no_1">No</label>
+                                        <span class="check"></span>
+                                    </div>
+                                </div>
+                                <div class="invalid-feedback"></div>
+                            </div>
                             <div class="form-textarea">
-                                <label for="room_description" class="radio-label">Descripción del cuarto</label>
-                                <textarea name="room_description" id="room_description" placeholder="Ejemplo: El cuarto debe tener . . ."></textarea>
+                                <label for="porque_sn_integrar" class="radio-label">¿Por qué?</label>
+                                <textarea name="porque_sn_integrar" id="porque_sn_integrar" placeholder="Escribir aquí"></textarea>
                                 <div class="invalid-feedback"></div>
                             </div>
                         </fieldset>
 
                         <h5>Información a consultar 4</h5>
                         <fieldset data-step="5">
-                            <div class="form-textarea">
-                                <label for="room_description" class="radio-label">Descripción del cuarto</label>
-                                <textarea name="room_description" id="room_description" placeholder="Ejemplo: El cuarto debe tener . . ."></textarea>
+                            <div class="form-radio">
+                                <span class="radio-label">2.1 ¿Considera necesario que las personas con discapacidad postuladas tengan que acreditar su discapacidad con algún documento?</span>
+                                <div class="form-radio-group _acred_disc">            
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="acred_disc" id="resp_si_2" value="1">
+                                        <label for="resp_si_2">Sí</label>
+                                        <span class="check"></span>
+                                    </div>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="acred_disc" id="resp_no_2" value="0">
+                                        <label for="resp_no_2">No</label>
+                                        <span class="check"></span>
+                                    </div>
+                                </div>
                                 <div class="invalid-feedback"></div>
                             </div>
+                            <div class="form-textarea">
+                                <label for="porque_sn_acreditar" class="radio-label">¿Por qué?</label>
+                                <textarea name="porque_sn_acreditar" id="porque_sn_acreditar" placeholder="Escribir aquí"></textarea>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+
+
                         </fieldset>
+
+                        <h5>Información a consultar 5</h5>
+                        <fieldset data-step="6">
+                            <div class="form-radio">
+                                <span class="radio-label">2.2 En caso de haber respondido SÍ, a la pregunta anterior</span>
+                                <span class="radio-label">¿De qué forma o con qué documento considera que podría acreditar la situación de discapacidad de una persona?</span>
+                                <div class="form-radio-group _prop_documentos">            
+                                    <div class="form-check">
+                                        <input type="checkbox" name="cred_sedif" id="cred_sedif" class="agree-term" />
+                                        <label for="cred_sedif" class="label-discapacidad _cred_sedif_title"><span><span></span></span>Credencial para personas con discapacidad permanente emitido por el Departamento de Discapacidad del Sistema para el Desarrollo Integral de la Familia en Tlaxcala (SEDIF).</label>     
+                                        <input type="checkbox" name="cred_sesa" id="cred_sesa" class="agree-term" />
+                                        <label for="cred_sesa" class="label-discapacidad "><span><span></span></span>Certificado de Discapacidad permanente emitido por autoridades de salud estatales o federales (IMSS, ISSSTE, Hospital Militar, Secretaría de Salud del estado Tlaxcala).</label>
+                                        <input type="checkbox" name="dict_medico" id="dict_medico" class="agree-term" />
+                                        <label for="dict_medico" class="label-discapacidad "><span><span></span></span>Dictamen Médico de Institución Pública que conste sobre una condición de discapacidad permanente.</label>
+                                        <input type="checkbox" name="const_medica" id="const_medica" class="agree-term" />
+                                        <label for="const_medica" class="label-discapacidad "><span><span></span></span>Constancia Médica de Institución Pública que conste sobre una condición de discapacidad permanente.</label>
+                                        <input type="checkbox" name="otro_doc_prop" id="otro_doc_prop" class="agree-term" onclick="muestraCampo2('otro_doc_prop','campo_otro_doc','otro_doc_txt');" />
+                                        <label for="otro_doc_prop" class="label-discapacidad "><span><span></span></span>Otro (Especifique cuál)</label>
+
+                                        <div class="form-group collapse hide" id="campo_otro_doc">
+                                            <label for="otro_doc_txt">Escriba otra propuesta</label>
+                                            <input type="text" name="otro_doc_txt" id="otro_doc_txt" />
+                                        </div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+
+
+
+                        </fieldset>
+
+                        <h5>Información a consultar 6</h5>
+                        <fieldset data-step="7">
+
+                        </fieldset>
+
+                        <h5>Información a consultar 7</h5>
+                        <fieldset data-step="8">
+
+                        </fieldset>
+
+
                     </form>
                 </div>
 

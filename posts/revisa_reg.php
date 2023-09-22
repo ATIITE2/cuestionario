@@ -133,7 +133,7 @@ if($_POST['indice'] == 1) {
         }
         else {
             if($_POST['vinculo_persona_disc'] == -1) {
-                $error = '#vinculo_persona_disc';
+                $error = '._vinculo_persona_disc';
                 $mssg = "Por favor seleccione una respuesta";
                 $success=false;
             }
@@ -175,28 +175,59 @@ if($_POST['indice'] == 3) {
     }
 }
 
-
-
-
-
-
 if($_POST['indice'] == 4) {
-    if(empty($_POST['room_description'])){
-        $error = '#room_description';
-        $mssg = "La descripción del cuarto no debe estar vacía";
+    if($_POST['integrar_consejos'] == -1){
+        $error = '._integrar_consejos';
+        $mssg = "Por favor seleccione una respuesta";
         $success=false;
-    } 
-}
+    }
+    
+    if(empty($_POST['porque_sn_integrar'])){
+        $error = '#porque_sn_integrar';
+        $mssg = "El campo de explicación no debe estar vacío";
+        $success=false;
+    }
 
+    if(strlen($_POST['porque_sn_integrar']) > 300){
+        $error = '#porque_sn_integrar';
+        $mssg = "El campo de explicación no debe exceder los 300 caracteres";
+        $success=false;
+    }
+}
 
 
 if($_POST['indice'] == 5) {
-    if(empty($_POST['room_description'])){
-        $error = '#room_description';
-        $mssg = "La descripción del cuarto no debe estar vacía";
+    if($_POST['acred_disc'] == -1){ 
+        $error = '._acred_disc';
+        $mssg = "Por favor seleccione una respuesta";
         $success=false;
-    } 
+    }
+    
+    if(empty($_POST['porque_sn_acreditar'])){
+        $error = '#porque_sn_acreditar';
+        $mssg = "El campo de explicación no debe estar vacío";
+        $success=false;
+    }
+
+    if(strlen($_POST['porque_sn_acreditar']) > 300){
+        $error = '#porque_sn_acreditar';
+        $mssg = "El campo de explicación no debe exceder los 300 caracteres";
+        $success=false;
+    }
+
 }
+
+
+if($_POST['indice'] == 6) {
+
+
+
+
+}
+
+
+
+
 
 header('Content-Type: application/json');
 echo json_encode(array('success' => $success, 'error'=> $error, 'mssg' => $mssg));

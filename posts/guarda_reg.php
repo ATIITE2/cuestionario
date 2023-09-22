@@ -37,7 +37,12 @@ if($_POST['indice'] == -1){
     $respuestas['otra_propuesta'] = $_POST['otra_propuesta'];
     $respuestas['otra_prop_txt'] = $_POST['otra_prop_txt'];
 
-// me quede en la pregunta 1.3
+    $respuestas['integrar_consejos'] = $_POST['integrar_consejos'];
+    $respuestas['porque_sn_integrar'] = $_POST['porque_sn_integrar'];
+
+    $respuestas['acred_disc'] = $_POST['acred_disc'];
+    $respuestas['porque_sn_acreditar'] = $_POST['porque_sn_acreditar'];
+
 
 
 
