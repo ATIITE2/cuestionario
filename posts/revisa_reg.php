@@ -79,7 +79,6 @@ if($_POST['indice'] == 0) {
         }
     }
  
-
     // Busca en base de datos si el telefono ya existe
     if(revisaDato("telefono",$_POST['telefono'],"usuarios")){
         $error = '#telefono';
@@ -106,14 +105,6 @@ if($_POST['indice'] == 0) {
         $mssg = "Este correo ya ha sido registrado.";
         $success=false;
     }
-
-
-    /* if($_POST['checado'] == 0) {
-        $error = '._checado';
-        $mssg = "<span><span></span></span>Se debe suscribir al correo de noticias.";
-        $success=false;
-    } */
-
 }
 
 if($_POST['indice'] == 1) {
@@ -127,7 +118,7 @@ if($_POST['indice'] == 1) {
 
             if(($_POST['disc_fisica']==0) && ($_POST['disc_mental']==0) && ($_POST['disc_intelectual']==0) && ($_POST['disc_sensorial']==0)) {
                 $error = '._disc_fisica';
-                $mssg = "Por favor seleccione al menos una opción";
+                $mssg = "<span><span></span></span>Discapacidad física (seleccione al menos una opción)";
                 $success=false;
             }
         }
@@ -195,7 +186,6 @@ if($_POST['indice'] == 4) {
     }
 }
 
-
 if($_POST['indice'] == 5) {
     if($_POST['acred_disc'] == -1){ 
         $error = '._acred_disc';
@@ -217,16 +207,67 @@ if($_POST['indice'] == 5) {
 
 }
 
-
 if($_POST['indice'] == 6) {
+    if($_POST['mostrar_preg1'] == 1){
 
+        if(($_POST['cred_sedif']==0) && ($_POST['cred_sesa']==0) && ($_POST['dict_medico']==0 && ($_POST['const_medica']==0) && ($_POST['otro_doc_prop']==0))){
+            $error = '._cred_sedif';
+            $mssg = "<span><span></span></span>Credencial para personas con discapacidad permanente emitido por el Departamento de Discapacidad del Sistema para el Desarrollo Integral de la Familia en Tlaxcala (SEDIF). (seleccione al menos una opción)";
+            $success=false;
+        }
 
-
-
+        if(($_POST['otro_doc_prop']==1) && (empty($_POST['otro_doc_txt']))) {
+            $error = '#campo_otro_doc';
+            $mssg = "La propuesta del documento no debe estár vacía";
+            $success=false; 
+        }   
+    }
 }
 
+if($_POST['indice'] == 7) {
+    if($_POST['acred_disc_perm'] == -1){ 
+        $error = '._acred_disc_perm';
+        $mssg = "Por favor seleccione una respuesta";
+        $success=false;
+    }
+    
+    if(empty($_POST['porque_sn_acreditar_perm'])){
+        $error = '#porque_sn_acreditar_perm';
+        $mssg = "El campo de explicación no debe estar vacío";
+        $success=false;
+    }
 
+    if(strlen($_POST['porque_sn_acreditar_perm']) > 300){
+        $error = '#porque_sn_acreditar_perm';
+        $mssg = "El campo de explicación no debe exceder los 300 caracteres";
+        $success=false;
+    }
+}
 
+if($_POST['indice'] == 8) {
+    if($_POST['mostrar_preg2'] == 1){
+
+        if(($_POST['cred_sedif2']==0) && ($_POST['cred_sesa2']==0) && ($_POST['dict_medico2']==0 && ($_POST['const_medica2']==0) && ($_POST['otro_doc_prop2']==0))){
+            $error = '._cred_sedif2';
+            $mssg = "<span><span></span></span>Credencial para personas con discapacidad permanente emitido por el Departamento de Discapacidad del Sistema para el Desarrollo Integral de la Familia en Tlaxcala (SEDIF). (seleccione al menos una opción)";
+            $success=false;
+        }
+
+        if(($_POST['otro_doc_prop2']==1) && (empty($_POST['otro_doc_txt2']))) {
+            $error = '#campo_otro_doc2';
+            $mssg = "La propuesta del documento no debe estár vacía";
+            $success=false; 
+        }   
+    }
+}
+
+if($_POST['indice'] == 9) {
+    if(empty($_POST['comentarios_add'])){
+        $error = '#comentarios_add';
+        $mssg = "El campo de comentarios no debe estar vacío";
+        $success=false;
+    }
+}
 
 
 header('Content-Type: application/json');

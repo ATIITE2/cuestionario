@@ -1,6 +1,6 @@
 <?php 
 
-$casa=false;
+$casa=true;
 $cred = array();
 
 $cred["dbhost"]="localhost";
@@ -50,11 +50,11 @@ function dbConexionGuardar($q,$tipos,$valores,$cual){
   $stmt=$conn->prepare($q);
 
   if($cual == 1){
-    $stmt->bind_param($tipos, $valores['nombre'], $valores['email'], $valores['password']);
+    $stmt->bind_param($tipos, $valores['nombres'], $valores['ap_paterno'], $valores['ap_materno'], $valores['genero'], $valores['otro_genero'], $valores['municipio'], $valores['telefono'], $valores['email']);
   }
 
   if($cual == 2){
-    $stmt->bind_param($tipos, $valores['usuario_id'], $valores['country'], $valores['daily_budget'], $valores['checado'], $valores['tipo_cuarto'], $valores['tipo_cuarto2'], $valores['room_description']);
+    $stmt->bind_param($tipos, $valores['usuario_id'], $valores['discap_permanente'], $valores['disc_fisica'], $valores['disc_mental'], $valores['disc_intelectual'], $valores['disc_sensorial'], $valores['vinculo_persona_disc'], $valores['nombre_asoc_agrup'], $valores['barreras_retos'], $valores['incl_personas'], $valores['foros_event'], $valores['capacitar_pcd'], $valores['sensib_disc'], $valores['otra_propuesta'], $valores['otra_prop_txt'], $valores['integrar_consejos'], $valores['porque_sn_integrar'], $valores['acred_disc'], $valores['porque_sn_acreditar'], $valores['cred_sedif'], $valores['cred_sesa'], $valores['dict_medico'], $valores['const_medica'], $valores['otro_doc_prop'], $valores['otro_doc_txt'], $valores['acred_disc_perm'], $valores['porque_sn_acreditar_perm'], $valores['cred_sedif2'], $valores['cred_sesa2'], $valores['dict_medico2'], $valores['const_medica2'], $valores['otro_doc_prop2'], $valores['otro_doc_txt2'], $valores['comentarios_add']);
   }
 
   if($stmt->execute()) $resp=isset($stmt->insert_id) ? intval($stmt->insert_id) : 0;
