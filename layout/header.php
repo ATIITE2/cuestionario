@@ -1,5 +1,4 @@
-<!-- <nav class="navbar navbar-expand-lg bg-light" id="navbar-cuestionario"> -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar-cuestionario">
+<nav class="navbar navbar-expand-lg bg-ite1 text-center" id="navbar-cuestionario">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="static/media/logoITECompleto.png" alt="Bootstrap" width="230">
@@ -10,11 +9,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link fs-4 active" aria-current="page" href="#">Home</a>
-                <a class="nav-link fs-4" href="#">Personas con <br />Discapacidad</a>
-                <a class="nav-link fs-4" href="#">Personas, pueblos y<br />comunidades indígenas</a>
-                <a class="nav-link fs-4" href="#">Comunidad LGBTTTIQ</a>
-                <a class="nav-link fs-4" href="#">Juventudes</a>
+                <a class="nav-link fs-4 d-flex justify-content-center align-items-center ps-4 pe-4 border border-5 border-top-0 border-bottom-0 border-start-0"
+                    href="#">
+                    Home
+                </a>
+                <a class="nav-link fs-4 d-flex justify-content-center align-items-center ps-4 pe-4 border border-5 border-top-0 border-bottom-0 border-start-0"
+                    href="#contenido_cuestionario">
+                    Cuestionario
+                </a>
+                <a class="nav-link fs-4 d-flex justify-content-center align-items-center ps-4 pe-4 border border-5 border-top-0 border-bottom-0 border-start-0"
+                    href="#versiones_ciudadanas">
+                    Versiones Ciudadanas
+                </a>
+                <a class="nav-link fs-4 d-flex justify-content-center align-items-center ps-4 pe-4 border border-5 border-top-0 border-bottom-0 border-start-0"
+                    href="#acuerdos">
+                    Acuerdos
+                </a>
             </div>
         </div>
     </div>

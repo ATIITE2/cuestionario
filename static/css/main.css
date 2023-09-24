@@ -1,12 +1,6 @@
 @charset "UTF-8";
 
 /* --------- PALOMA ------- */
-#navbar-cuestionario .navbar-nav a {
-  border-right: 3px solid #ccc;
-  padding-right: 20px;
-  margin-right: 10px;
-}
-
 #navbar-cuestionario .navbar-nav a:last-child {
   border-right: none;
   margin-right: 0;
@@ -14,20 +8,35 @@
 }
 
 
-/* ----------------------------- */
-#navbar-cuestionario {
-  background-color: #C757A3 !important;
-  text-align: center;
-}
-
 #navbar-cuestionario .nav-link,
 #navbar-cuestionario .navbar-brand {
   color: #ffffff !important;
   font-weight: bolder;
 }
 
+.bg-ite1 {
+  background-color: #C757A3 !important;
+}
+
+.bg-ite2 {
+  background-color: #A34986 !important;
+}
+
+.bg-ite3 {
+  background-color: #A60064 !important;
+}
+
+.bg-ite4 {
+  background-color: #C4C4C4 !important;
+}
+
+.w-80 {
+  width: 80% !important;
+}
+
+/* ----------------------------- */
+
 .Footer {
-  background-color: #340928 !important;
   color: #fff !important;
   text-align: center;
 }
@@ -157,9 +166,9 @@ body {
   text-align: justify !important;
 }
 
-/* .App__container {
+.App__container {
   margin: auto;
-} */
+}
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox=%270 0 32 32%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath stroke=%27rgba%28255,255,255, 0.5%29%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 d=%27M4 8h24M4 16h24M4 24h24%27/%3E%3C/svg%3E") !important;
