@@ -30,18 +30,6 @@
     <div class="Acuerdos">
         <div class="Acuerdos__container">
             <h3 class="bottom-title">CUESTIONARIO</h3>
-            <!-- div class="row mt-3">
-                <div class="col-md-6">
-                    <div class="Acuerdos__box"></div>
-                    <div class="Acuerdos__body ps-3 pe-3 pt-3 b-3">
-                        ACUERDO DEL CONSEJO GENERAL DEL INSTITUTO
-                        TLAXCALTECA DE ELECCIONES, POR EL QUE SE APRUEBAN LAS MEDIDAS PARA GARANTIZAR EL
-                        FUNCIONAMIENTO DEL INSTITUTO Y PREVENCIÓN DE LA SALUD DE LAS Y LOS SERVIDORES PÚBLICOS Y
-                        PERSONAS QUE ACUDAN A SUS INSTALACIONES, CON MOTIVO DE LA PANDEMIA COVID-19.
-                    </div>
-                    <div class="Acuerdos__box"> </div>
-                </div>
-            </div -->
             <div class="principal">
                 <div class="contenedor">
                     <form method="POST" id="cuestionario-form" class="needs-validation signup-form" enctype="multipart/form-data " novalidate>
@@ -64,16 +52,6 @@
                                     <input type="text" name="ap_materno" id="ap_materno" />
                                     <div class="invalid-feedback"></div>
                                 </div>                                                                
-                                <!-- div class="form-select _country">
-                                    <span class="_country_title">País</span>
-                                    <div class="select-group">
-                                        <select name="country" id="country">
-                                            <option value=""></option>
-                                            <option value="Vn">Vietnam</option>
-                                            <option value="US">Estados Unidos</option>
-                                        </select>
-                                    </div>
-                                </div -->
                             </div>
                             <div class="form-row">
                                 <div class="form-select _genero">
@@ -112,11 +90,6 @@
                                     <div class="invalid-feedback"></div>
                                 </div>
                             </div>
-
-                            <!-- div class="form-check _checado">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term _checado_title"><span><span></span></span>Suscríbase al correo de noticias</label>
-                            </div -->
                         </fieldset>
 
                         <h5>Información general</h5>
@@ -125,12 +98,12 @@
                                 <span class="radio-label">¿Es usted una persona con discapacidad permanente?</span>
                                 <div class="form-radio-group _discap_permanente">            
                                     <div class="form-radio-item">
-                                        <input type="radio" name="discap_permanente" id="resp_si" value="1" onclick="muestraOpciones1(0);">
+                                        <input type="radio" name="discap_permanente" id="resp_si" value="1" onclick="muestraOpciones1(1);">
                                         <label for="resp_si">Sí</label>
                                         <span class="check"></span>
                                     </div>
                                     <div class="form-radio-item">
-                                        <input type="radio" name="discap_permanente" id="resp_no" value="0" onclick="muestraOpciones1(1);">
+                                        <input type="radio" name="discap_permanente" id="resp_no" value="0" onclick="muestraOpciones1(0);">
                                         <label for="resp_no">No</label>
                                         <span class="check"></span>
                                     </div>
@@ -154,8 +127,6 @@
                                 </div>
                                 <div class="invalid-feedback"></div>
                             </div>
-
-
                             <div class="form-radio collapse hide" id="especif_vinculo">
                                 <span class="radio-label">Especifique su vínculo con la persona con discapacidad</span>
                                 <div class="form-radio-group _vinculo_persona_disc">
@@ -187,36 +158,11 @@
 
                         <h5>Información a consultar 1</h5>
                         <fieldset data-step="2">
-                        <div class="form-textarea">
+                            <div class="form-textarea">
                                 <label for="barreras_retos" class="radio-label">1.1	Si es una persona con discapacidad permanente ¿A qué barreras o retos se ha enfrentado para ejercer tus derechos políticos electorales?</label>
                                 <textarea name="barreras_retos" id="barreras_retos" placeholder="Escribir aquí"></textarea>
                                 <div class="invalid-feedback"></div>
                             </div>
-                         
-                            <!--div class="form-radio">
-                                <span class="radio-label">¿Qué otro tipo de cuarto desea?</span>
-                                <div class="form-radio-group _cuarto2">            
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="room_type2" id="chico" value="1">
-                                        <label for="chico">Chico</label>
-                                        <span class="check"></span>
-                                    </div>
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="room_type2" id="mediano" value="2">
-                                        <label for="mediano">Mediano</label>
-                                        <span class="check"></span>
-                                    </div>
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="room_type2" id="grande" value="3">
-                                        <label for="grande">Grande</label>
-                                        <span class="check"></span>
-                                    </div>
-                                </div>
-                                <div class="invalid-feedback"></div>
-                            </div -->
-
-
-
                         </fieldset>
 
                         <h5>Información a consultar 2</h5>
@@ -278,12 +224,12 @@
                                 <span class="radio-label">2.1 ¿Considera necesario que las personas con discapacidad postuladas tengan que acreditar su discapacidad con algún documento?</span>
                                 <div class="form-radio-group _acred_disc">            
                                     <div class="form-radio-item">
-                                        <input type="radio" name="acred_disc" id="resp_si_2" value="1">
+                                        <input type="radio" name="acred_disc" id="resp_si_2" value="1" onclick="muestraOpciones2(1);">
                                         <label for="resp_si_2">Sí</label>
                                         <span class="check"></span>
                                     </div>
                                     <div class="form-radio-item">
-                                        <input type="radio" name="acred_disc" id="resp_no_2" value="0">
+                                        <input type="radio" name="acred_disc" id="resp_no_2" value="0"  onclick="muestraOpciones2(0);">
                                         <label for="resp_no_2">No</label>
                                         <span class="check"></span>
                                     </div>
@@ -295,18 +241,16 @@
                                 <textarea name="porque_sn_acreditar" id="porque_sn_acreditar" placeholder="Escribir aquí"></textarea>
                                 <div class="invalid-feedback"></div>
                             </div>
-
-
-
                         </fieldset>
 
                         <h5>Información a consultar 5</h5>
                         <fieldset data-step="6">
                             <div class="form-radio">
-                                <span class="radio-label">2.2 En caso de haber respondido SÍ, a la pregunta anterior</span>
-                                <span class="radio-label">¿De qué forma o con qué documento considera que podría acreditar la situación de discapacidad de una persona?</span>
-                                <div class="form-radio-group _prop_documentos">            
+                                <span class="radio-label" id="prop_docs_msj1"></span>
+                                <span class="radio-label" id="prop_docs_msj2"></span>
+                                <div class="form-radio-group _prop_documentos collapse show" id="prop_docs_opciones">            
                                     <div class="form-check">
+                                    <input type="hidden" name="mostrar_preg1" id="mostrar_preg1" value="1" />
                                         <input type="checkbox" name="cred_sedif" id="cred_sedif" class="agree-term" />
                                         <label for="cred_sedif" class="label-discapacidad _cred_sedif_title"><span><span></span></span>Credencial para personas con discapacidad permanente emitido por el Departamento de Discapacidad del Sistema para el Desarrollo Integral de la Familia en Tlaxcala (SEDIF).</label>     
                                         <input type="checkbox" name="cred_sesa" id="cred_sesa" class="agree-term" />
@@ -317,7 +261,6 @@
                                         <label for="const_medica" class="label-discapacidad "><span><span></span></span>Constancia Médica de Institución Pública que conste sobre una condición de discapacidad permanente.</label>
                                         <input type="checkbox" name="otro_doc_prop" id="otro_doc_prop" class="agree-term" onclick="muestraCampo2('otro_doc_prop','campo_otro_doc','otro_doc_txt');" />
                                         <label for="otro_doc_prop" class="label-discapacidad "><span><span></span></span>Otro (Especifique cuál)</label>
-
                                         <div class="form-group collapse hide" id="campo_otro_doc">
                                             <label for="otro_doc_txt">Escriba otra propuesta</label>
                                             <input type="text" name="otro_doc_txt" id="otro_doc_txt" />
@@ -327,23 +270,70 @@
                                 </div>
                                 <div class="invalid-feedback"></div>
                             </div>
-
-
-
-
                         </fieldset>
 
                         <h5>Información a consultar 6</h5>
                         <fieldset data-step="7">
-
+                            <div class="form-radio">
+                                <span class="radio-label">3.1 ¿Considera necesario que las personas con discapacidad que deseen integrar los Consejos Distritales o municipales acrediten su discapacidad permanente con algún documento?</span>
+                                <div class="form-radio-group _acred_disc_perm">            
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="acred_disc_perm" id="resp_si_3" value="1" onclick="muestraOpciones3(1);">
+                                        <label for="resp_si_3">Sí</label>
+                                        <span class="check"></span>
+                                    </div>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="acred_disc_perm" id="resp_no_3" value="0"  onclick="muestraOpciones3(0);">
+                                        <label for="resp_no_3">No</label>
+                                        <span class="check"></span>
+                                    </div>
+                                </div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="form-textarea">
+                                <label for="porque_sn_acreditar_perm" class="radio-label">¿Por qué?</label>
+                                <textarea name="porque_sn_acreditar_perm" id="porque_sn_acreditar_perm" placeholder="Escribir aquí"></textarea>
+                                <div class="invalid-feedback"></div>
+                            </div>
                         </fieldset>
 
                         <h5>Información a consultar 7</h5>
                         <fieldset data-step="8">
-
+                            <div class="form-radio">
+                                <span class="radio-label" id="prop_docs_dos_msj1"></span>
+                                <span class="radio-label" id="prop_docs_dos_msj2"></span>
+                                <div class="form-radio-group _prop_documentos_dos collapse show" id="prop_docs_dos_opc">            
+                                    <div class="form-check">
+                                    <input type="hidden" name="mostrar_preg2" id="mostrar_preg2" value="1" />
+                                        <input type="checkbox" name="cred_sedif2" id="cred_sedif2" class="agree-term" />
+                                        <label for="cred_sedif2" class="label-discapacidad _cred_sedif2_title"><span><span></span></span>Credencial para personas con discapacidad permanente emitido por el Departamento de Discapacidad del Sistema para el Desarrollo Integral de la Familia en Tlaxcala (SEDIF).</label>     
+                                        <input type="checkbox" name="cred_sesa2" id="cred_sesa2" class="agree-term" />
+                                        <label for="cred_sesa2" class="label-discapacidad "><span><span></span></span>Certificado de Discapacidad permanente emitido por autoridades de salud estatales o federales (IMSS, ISSSTE, Hospital Militar, Secretaría de Salud del estado Tlaxcala).</label>
+                                        <input type="checkbox" name="dict_medico2" id="dict_medico2" class="agree-term" />
+                                        <label for="dict_medico2" class="label-discapacidad "><span><span></span></span>Dictamen Médico de Institución Pública que conste sobre una condición de discapacidad permanente.</label>
+                                        <input type="checkbox" name="const_medica2" id="const_medica2" class="agree-term" />
+                                        <label for="const_medica2" class="label-discapacidad "><span><span></span></span>Constancia Médica de Institución Pública que conste sobre una condición de discapacidad permanente.</label>
+                                        <input type="checkbox" name="otro_doc_prop2" id="otro_doc_prop2" class="agree-term" onclick="muestraCampo2('otro_doc_prop2','campo_otro_doc2','otro_doc_txt2');" />
+                                        <label for="otro_doc_prop2" class="label-discapacidad "><span><span></span></span>Otro (Especifique cuál).</label>
+                                        <div class="form-group collapse hide" id="campo_otro_doc2">
+                                            <label for="otro_doc_txt2">Escriba otra propuesta</label>
+                                            <input type="text" name="otro_doc_txt2" id="otro_doc_txt2" />
+                                        </div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="invalid-feedback"></div>
+                            </div>
                         </fieldset>
 
-
+                        <h5>Comentarios Adicionales</h5>
+                        <fieldset data-step="9">
+                            <div class="form-textarea">
+                                <label for="comentarios_add" class="radio-label">Escriba en este campo sus comentarios</label>
+                                <textarea name="comentarios_add" id="comentarios_add" placeholder="Escribir aquí"></textarea>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </fieldset>
                     </form>
                 </div>
 

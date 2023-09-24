@@ -43,31 +43,39 @@ if($_POST['indice'] == -1){
     $respuestas['acred_disc'] = $_POST['acred_disc'];
     $respuestas['porque_sn_acreditar'] = $_POST['porque_sn_acreditar'];
 
+    $respuestas['cred_sedif'] = $_POST['cred_sedif'];
+    $respuestas['cred_sesa'] = $_POST['cred_sesa'];
+    $respuestas['dict_medico'] = $_POST['dict_medico'];
+    $respuestas['const_medica'] = $_POST['const_medica'];
+    $respuestas['otro_doc_prop'] = $_POST['otro_doc_prop'];
+    $respuestas['otro_doc_txt'] = $_POST['otro_doc_txt'];
+
+    $respuestas['acred_disc_perm'] = $_POST['acred_disc_perm'];
+    $respuestas['porque_sn_acreditar_perm'] = $_POST['porque_sn_acreditar_perm'];
+
+    $respuestas['cred_sedif2'] = $_POST['cred_sedif2'];
+    $respuestas['cred_sesa2'] = $_POST['cred_sesa2'];
+    $respuestas['dict_medico2'] = $_POST['dict_medico2'];
+    $respuestas['const_medica2'] = $_POST['const_medica2'];
+    $respuestas['otro_doc_prop2'] = $_POST['otro_doc_prop2'];
+    $respuestas['otro_doc_txt2'] = $_POST['otro_doc_txt2'];
+
+    $respuestas['comentarios_add'] = $_POST['comentarios_add'];
 
 
-
-
-
-
-    
-    /*$respuestas['tipo_cuarto'] = $_POST['tipo_cuarto'];
-    $respuestas['tipo_cuarto2'] = $_POST['tipo_cuarto2'];
-    $respuestas['room_description'] = $_POST['room_description']; */
-
-
-    $q1="INSERT INTO usuarios(nombre, email, password)
-        VALUES(?, ?, ?)";
+    $q1="INSERT INTO usuarios(nombres, ap_paterno, ap_materno, genero, otro_genero, municipio, telefono, email)
+        VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
         
-    $r=dbConexionGuardar($q1,"sss",$respuestas,1);
+    $r=dbConexionGuardar($q1,"sssissss",$respuestas,1);
     
     if(!is_numeric($r)) $msj=$r;
     else {
         $respuestas['usuario_id']=$r;
 
-        $q2="INSERT INTO respuestas(usuario_id, country, daily_budget, agree_term, room_type, room_type2, room_description)
-        VALUES(?, ?, ?, ?, ?, ?, ?)";
+        $q2="INSERT INTO respuestas(usuario_id, discap_permanente, disc_fisica, disc_mental, disc_intelectual, disc_sensorial, vinculo_persona_disc, nombre_asoc_agrup, barreras_retos, incl_personas, foros_event, capacitar_pcd, sensib_disc, otra_propuesta, otra_prop_txt, integrar_consejos, porque_sn_integrar, acred_disc, porque_sn_acreditar, cred_sedif, cred_sesa, dict_medico, const_medica, otro_doc_prop, otro_doc_txt, acred_disc_perm, porque_sn_acreditar_perm, cred_sedif2, cred_sesa2, dict_medico2, const_medica2, otro_doc_prop2, otro_doc_txt2, comentarios_add)
+        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
-        $r2=dbConexionGuardar($q2,"issssss",$respuestas,2);
+        $r2=dbConexionGuardar($q2,"iiiiiiissiiiiisisisiiiiisisiiiiiss",$respuestas,2);
 
         if(!is_numeric($r2)) $msj=$r2;
         else {

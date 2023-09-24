@@ -229,7 +229,7 @@ display-flex, .select-icon, .select-icon i, .steps ul, .actions ul li a, .form-r
       color: #999;
       font-size: 13px; }
   
-  #room_description, #barreras_retos {
+  #barreras_retos, #comentarios_add {
     height: 150px;
     margin-top: 22px;
   }
