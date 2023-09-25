@@ -49,10 +49,22 @@
         <form class="was-validated" action="operations.php" method="post" enctype="multipart/form-data"
             id="miFormulario">
             <h1>DATOS GENERALES</h1>
-            <label for="nombre">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" required>
+            <label for="nombres">Nombre:</label>
+            <input type="text" class="form-control" id="nombres" required>
             <div class="invalid-feedback">
                 Por favor, ingrese un Nombre
+            </div>
+
+            <label for="ap_paterno">Apellido paterno:</label>
+            <input type="text" class="form-control" id="ap_paterno" required>
+            <div class="invalid-feedback">
+                Por favor, ingrese su apellido paterno
+            </div>
+
+            <label for="ap_materno">Apellido materno:</label>
+            <input type="text" class="form-control" id="ap_materno" required>
+            <div class="invalid-feedback">
+                Por favor, ingrese su apellido materno
             </div>
 
             <label for="edad">Edad:</label>
@@ -65,11 +77,11 @@
                 Género:
             </label>
             <select class="form-select" name="genero" id="genero" required>
-                <option value="" selected>Seleccione un género</option>
-                <option value="Mujer">Mujer</option>
-                <option value="Hombre">Hombre</option>
-                <option value="No binario">No binario</option>
-                <option value="otro">Otro</option>
+                <option value="0">Mujer</option>
+                <option value="1">Hombre</option>
+                <option value="2">No binario</option>
+                <option value="3">Otro (especifique)</option>
+                <option value="4">Prefiero no contestar</option>
             </select>
             <div class="invalid-feedback">
                 Por favor, ingrese un Género
@@ -160,20 +172,20 @@
                 Por favor, ingrese un Municipio
             </div>
 
-            <label for="numero_contacto">Número de contacto:</label>
-            <input type="text" class="form-control" id="numero_contacto" required>
-            <div class="invalid-feedback">
+            <label for="telefono">Número de contacto:</label>
+            <input type="text" class="form-control" id="telefono" name="telefono" required>
+            <div class="invalid-feedback" id="msj_telefono">
                 Por favor, ingrese un Número de contacto
             </div>
 
-            <label for="correo">Correo electrónico:</label>
-            <input type="email" class="form-control" id="correo" required>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" class="form-control" id="email" required>
             <div class="invalid-feedback">
                 Por favor, ingrese un Correo Electrónico
             </div>
 
-            <label for="discapacidad">¿Es usted una persona con discapacidad permanente?</label>
-            <select class="form-control" name="discapacidad" id="discapacidad" required>
+            <label for="discap_permanente">¿Es usted una persona con discapacidad permanente?</label>
+            <select class="form-control" name="discap_permanente" id="discap_permanente" required>
                 <option value="" selected>Seleccione una opción</option>
                 <option value="si">Si</option>
                 <option value="no">No</option>
@@ -210,18 +222,18 @@
             </div>
 
             <div style="display: none" id="no_discapacidad_container" name="no_discapacidad_container">
-                <label for="vinculo_persona">Especifique su vínculo con la persona con discapacidad:</label>
+                <label for="vinculo_persona_disc">Especifique su vínculo con la persona con discapacidad:</label>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="familiar" name="vinculo_persona" value="Familiar">
+                    <input type="radio" class="form-check-input" id="familiar" name="vinculo_persona_disc" value="Familiar">
                     <label class="form-check-label" for="familiar">Familiar</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="cuidador" name="vinculo_persona"
+                    <input type="radio" class="form-check-input" id="cuidador" name="vinculo_persona_disc"
                         value="Cuidador/a">
                     <label class="form-check-label" for="cuidador">Cuidador/a</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="integrante" name="vinculo_persona"
+                    <input type="radio" class="form-check-input" id="integrante" name="vinculo_persona_disc"
                         value="Integrante o representante de una asociación o agrupación de personas con discapacidad">
                     <label class="form-check-label" for="integrante">Integrante o representante de una asociación o
                         agrupación de personas con discapacidad</label>
@@ -243,7 +255,7 @@
                 enfrentado para ejercer sus derechos político electorales?:</label>
             <input type="text" class="form-control" id="retos_discapacidad" required>
             <div class="invalid-feedback">
-                Por favor, ingrese el nombre
+                Por favor, describa cuales son las barreras o retos
             </div>
 
             <div class="form-group">
@@ -283,7 +295,7 @@
 
             <div style="display: none" id="acciones_interes_container" name="acciones_interes_container">
                 <label for="otraAccion">Especifique:</label>
-                <textarea class="form-control" id="otraAccion" name="otraAccion"></textarea>
+                <textarea class="form-control" id="otra_accion" name="otra_accion"></textarea>
             </div>
 
             <label for="opinion_accion_afirmativa">

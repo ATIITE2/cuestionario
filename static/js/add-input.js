@@ -2,9 +2,9 @@
 const generoSelect = document.getElementById("genero");
 const otroGeneroContainer = document.getElementById("otro_genero_container");
 const otroGeneroInput = document.getElementById("otro_genero");
-const numeroContactoInput = document.getElementById("numero_contacto");
-const numeroContactoValue = document.getElementById("numero_contacto").value;
-const msjContactoInput = document.getElementById("msj_contacto");
+const telefonoInput = document.getElementById("telefono");
+var telefonoValue = document.getElementById("telefono").value;
+const msjTelefonoInput = document.getElementById("msj_telefono");
 
 generoSelect.addEventListener("change", function () {
   if (generoSelect.value === '3') {
@@ -18,24 +18,24 @@ generoSelect.addEventListener("change", function () {
 });
 
 
-numeroContactoInput.addEventListener("keyup", function () {
-  var num=numeroContactoValue;
+telefonoInput.addEventListener("keyup", function () {
+  var num=telefonoValue;
   if (isNaN(num) || (num.length != 10)) {
-    numeroContactoInput.style.display = "block";
-    numeroContactoInput.setAttribute("required", "required");
+    telefonoInput.style.display = "block";
+    telefonoInput.setAttribute("required", "required");
     var msj ="";
     if(isNaN(num)) msj="El contacto debe ser numérico";
     if(num.length != 10) msj="El número de contacto debe ser de 10 caracteres";
-    msjContactoInput.innerHTML = msj;
+    msjTelefonoInput.innerHTML = msj;
   } else {
-    numeroContactoInput.style.display = "none";
-    numeroContactoInput.removeAttribute("required");
-    msjContactoInput.innerHTML = "";
+    telefonoInput.style.display = "none";
+    telefonoInput.removeAttribute("required");
+    msjTelefonoInput.innerHTML = "";
   }
 });
 
 // ------------ AGREGAR CAMPO QUE DISCAPACIDAD O VINCULO ------------
-const discapacidadSelect = document.getElementById("discapacidad");
+const discapacidadSelect = document.getElementById("discap_permanente");
 const siDiscapacidadContainer = document.getElementById(
   "si_discapacidad_container"
 );
@@ -46,7 +46,7 @@ const radiosDiscapacidad = document.querySelectorAll(
   'input[name="tipo_discapacidad"]'
 );
 const radiosVinculoPersona = document.querySelectorAll(
-  'input[name="vinculo_persona"]'
+  'input[name="vinculo_persona_disc"]'
 );
 
 discapacidadSelect.addEventListener("change", function () {
@@ -95,7 +95,7 @@ var checkboxOtra = document.getElementById("opcion5");
 var otraTextAreaContainer = document.getElementById(
   "acciones_interes_container"
 );
-var otraAccion = document.getElementById("otraAccion");
+var otraAccion = document.getElementById("otra_accion");
 
 checkboxOtra.addEventListener("change", function () {
   if (checkboxOtra.checked === true) {
