@@ -45,331 +45,341 @@
     <div class="w-80 mx-auto" id="contenido_cuestionario">
         <!-- ------------------------------- AQUI VA EL CUESTIONARIO ------------------------------- -->
 
-        <div class="principal">
-            <div class="contenedor">
-                <form method="POST" id="cuestionario-form" class="needs-validation signup-form" enctype="multipart/form-data " novalidate>
-                    <div id="result"></div>
-                    <h5>Datos generales</h5>
-                    <fieldset data-step="0">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="nombres">Nombre</label>
-                                <input type="text" name="nombres" id="nombres" />
-                                <div class="invalid-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="ap_paterno">Apellido paterno</label>
-                                <input type="text" name="ap_paterno" id="ap_paterno" />
-                                <div class="invalid-feedback"></div>
-                            </div>                                
-                            <div class="form-group">
-                                <label for="ap_materno">Apellido materno</label>
-                                <input type="text" name="ap_materno" id="ap_materno" />
-                                <div class="invalid-feedback"></div>
-                            </div>                                                                
-                        </div>
-                        <div class="form-row">
-                            <div class="form-select _genero">
-                                <span class="_genero_title">Género</span>
-                                <div class="select-group">
-                                    <select name="genero" id="genero">
-                                        <option value="-1"></option>
-                                        <option value="0">Mujer</option>
-                                        <option value="1">Hombre</option>
-                                        <option value="2">No binario</option>
-                                        <option value="3">Otro (especifique)</option>
-                                        <option value="4">Prefiero no contestar</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group collapse hide" id="campo_genero">
-                                <label for="otro_genero">Especificar género</label>
-                                <input type="text" name="otro_genero" id="otro_genero" />
-                                <div class="invalid-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="municipio">Municipio</label>
-                                <input type="text" name="municipio" id="municipio" autocomplete="on" />
-                                <div class="invalid-feedback"></div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="telefono">Número de contacto</label>
-                                <input type="text" name="telefono" id="telefono" />
-                                <div class="invalid-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Correo electrónico</label>
-                                <input type="email" name="email" id="email" autocomplete="on" />
-                                <div class="invalid-feedback"></div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <h5>Información general</h5>
-                    <fieldset data-step="1">
-                        <div class="form-radio">
-                            <span class="radio-label">¿Es usted una persona con discapacidad permanente?</span>
-                            <div class="form-radio-group _discap_permanente">            
-                                <div class="form-radio-item">
-                                    <input type="radio" name="discap_permanente" id="resp_si" value="1" onclick="muestraOpciones1(1);">
-                                    <label for="resp_si">Sí</label>
-                                    <span class="check"></span>
-                                </div>
-                                <div class="form-radio-item">
-                                    <input type="radio" name="discap_permanente" id="resp_no" value="0" onclick="muestraOpciones1(0);">
-                                    <label for="resp_no">No</label>
-                                    <span class="check"></span>
-                                </div>
-                            </div>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                        
-                        <div class="form-radio collapse hide" id="tipo_discap">
-                            <span class="radio-label">¿Qué tipo de discapacidad presenta? (Marque una o varias opciones)</span>
-                            <div class="form-radio-group _tipo_discap">            
-                                <div class="form-check">
-                                    <input type="checkbox" name="disc_fisica" id="disc_fisica" class="agree-term" />
-                                    <label for="disc_fisica" class="label-discapacidad _disc_fisica_title"><span><span></span></span>Discapacidad física</label>
-                                    <input type="checkbox" name="disc_mental" id="disc_mental" class="agree-term" />
-                                    <label for="disc_mental" class="label-discapacidad "><span><span></span></span>Discapacidad mental</label>
-                                    <input type="checkbox" name="disc_intelectual" id="disc_intelectual" class="agree-term" />
-                                    <label for="disc_intelectual" class="label-discapacidad "><span><span></span></span>Discapacidad intelectual</label>
-                                    <input type="checkbox" name="disc_sensorial" id="disc_sensorial" class="agree-term" />
-                                    <label for="disc_sensorial" class="label-discapacidad "><span><span></span></span>Discapacidad sensorial</label>
-                                </div>
-                            </div>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                        <div class="form-radio collapse hide" id="especif_vinculo">
-                            <span class="radio-label">Especifique su vínculo con la persona con discapacidad</span>
-                            <div class="form-radio-group _vinculo_persona_disc">
-                                <div class="form-radio-item">
-                                    <input type="radio" name="vinculo_persona_disc" id="opcion_0" value="0" onclick="muestraCampo1(0);">
-                                    <label for="opcion_0">Familiar</label>
-                                    <span class="check"></span>
-                                </div>
-                                <div class="form-radio-item">
-                                    <input type="radio" name="vinculo_persona_disc" id="opcion_1" value="1" onclick="muestraCampo1(0);">
-                                    <label for="opcion_1">Cuidador</label>
-                                    <span class="check"></span>
-                                </div>
-                                <div class="form-radio-item">
-                                    <input type="radio" name="vinculo_persona_disc" id="opcion_2" value="2" onclick="muestraCampo1(1);">
-                                    <label for="opcion_2">Integrante o representante de una asociación o agrupación de personas con discapacidad</label>
-                                    <span class="check"></span>
-                                </div> 
-                            </div>
-                            <div class="invalid-feedback"></div>
-                            <div class="form-group collapse hide" id="campo_asociacion">
-                                <label for="nombre_asoc_agrup">Indique el nombre de la asociación o agrupación.</label>
-                                <input type="text" name="nombre_asoc_agrup" id="nombre_asoc_agrup" />
-                                <div class="invalid-feedback"></div>
-                            </div>   
-                        </div>
-                    </fieldset>
-                    
-                    <h5>Información a consultar 1</h5>
-                    <fieldset data-step="2">
-                        <div class="form-textarea">
-                            <label for="barreras_retos" class="radio-label">1.1	Si es una persona con discapacidad permanente ¿A qué barreras o retos se ha enfrentado para ejercer tus derechos políticos electorales?</label>
-                            <textarea name="barreras_retos" id="barreras_retos" placeholder="Escribir aquí"></textarea>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                    </fieldset>
-                    
-                    <h5>Información a consultar 2</h5>
-                    <fieldset data-step="3">
-                        <div class="form-radio">
-                            <span class="radio-label">1.2  ¿Cuáles podrían ser algunas propuestas o acciones para promover la participación y representación política de las personas con discapacidad en Tlaxcala?</span>
-                            <div class="form-radio-group _prop_acciones">            
-                                <div class="form-check">
-                                    <input type="checkbox" name="incl_personas" id="incl_personas" class="agree-term" />
-                                    <label for="incl_personas" class="label-discapacidad _incl_personas_title"><span><span></span></span>Impulsar la participación e inclusión de las personas con discapacidad en los partidos políticos.</label>     
-                                    <input type="checkbox" name="foros_event" id="foros_event" class="agree-term" />
-                                    <label for="foros_event" class="label-discapacidad "><span><span></span></span>Realizar foros o eventos sobre participación y representación política dirigidos a personas con discapacidad.</label>
-                                    <input type="checkbox" name="capacitar_pcd" id="capacitar_pcd" class="agree-term" />
-                                    <label for="capacitar_pcd" class="label-discapacidad "><span><span></span></span>Capacitación de las personas con discapacidad a través de las organizaciones de la sociedad civil en la materia.</label>
-                                    <input type="checkbox" name="sensib_disc" id="sensib_disc" class="agree-term" />
-                                    <label for="sensib_disc" class="label-discapacidad "><span><span></span></span>Sensibilización a partidos políticos en temas de discapacidad.</label>
-                                    <input type="checkbox" name="otra_propuesta" id="otra_propuesta" class="agree-term" onclick="muestraCampo2('otra_propuesta','campo_otra_propuesta','otra_prop_txt');" />
-                                    <label for="otra_propuesta" class="label-discapacidad "><span><span></span></span>Otra, especifique cuál</label>
-                                    
-                                    <div class="form-group collapse hide" id="campo_otra_propuesta">
-                                        <label for="otra_prop_txt">Escriba otra propuesta</label>
-                                        <input type="text" name="otra_prop_txt" id="otra_prop_txt" />
-                                    </div>
-                                    <div class="invalid-feedback"></div>
-                                </div>
-                            </div>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                    </fieldset>
-                    
-                    <h5>Información a consultar 3</h5>
-                    <fieldset data-step="4">
-                        <div class="form-radio">
-                            <span class="radio-label">1.3 ¿Considera necesario que las personas con discapacidad que deseen integrar los Consejos Distritales o municipales acrediten su discapacidad permanente con algún documento?</span>
-                            <div class="form-radio-group _integrar_consejos">            
-                                <div class="form-radio-item">
-                                    <input type="radio" name="integrar_consejos" id="resp_si_1" value="1">
-                                    <label for="resp_si_1">Sí</label>
-                                    <span class="check"></span>
-                                </div>
-                                <div class="form-radio-item">
-                                    <input type="radio" name="integrar_consejos" id="resp_no_1" value="0">
-                                    <label for="resp_no_1">No</label>
-                                    <span class="check"></span>
-                                </div>
-                            </div>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                        <div class="form-textarea">
-                            <label for="porque_sn_integrar" class="radio-label">¿Por qué?</label>
-                            <textarea name="porque_sn_integrar" id="porque_sn_integrar" placeholder="Escribir aquí"></textarea>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                    </fieldset>
-                    
-                    <h5>Información a consultar 4</h5>
-                    <fieldset data-step="5">
-                        <div class="form-radio">
-                            <span class="radio-label">2.1 ¿Considera necesario que las personas con discapacidad postuladas tengan que acreditar su discapacidad con algún documento?</span>
-                            <div class="form-radio-group _acred_disc">            
-                                <div class="form-radio-item">
-                                    <input type="radio" name="acred_disc" id="resp_si_2" value="1" onclick="muestraOpciones2(1);">
-                                    <label for="resp_si_2">Sí</label>
-                                    <span class="check"></span>
-                                </div>
-                                <div class="form-radio-item">
-                                    <input type="radio" name="acred_disc" id="resp_no_2" value="0"  onclick="muestraOpciones2(0);">
-                                    <label for="resp_no_2">No</label>
-                                    <span class="check"></span>
-                                </div>
-                            </div>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                        <div class="form-textarea">
-                            <label for="porque_sn_acreditar" class="radio-label">¿Por qué?</label>
-                            <textarea name="porque_sn_acreditar" id="porque_sn_acreditar" placeholder="Escribir aquí"></textarea>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                    </fieldset>
-
-                    <h5>Información a consultar 5</h5>
-                    <fieldset data-step="6">
-                        <div class="form-radio">
-                            <span class="radio-label" id="prop_docs_msj1"></span>
-                            <span class="radio-label" id="prop_docs_msj2"></span>
-                            <div class="form-radio-group _prop_documentos collapse show" id="prop_docs_opciones">            
-                                <div class="form-check">
-                                    <input type="hidden" name="mostrar_preg1" id="mostrar_preg1" value="1" />
-                                    <input type="checkbox" name="cred_sedif" id="cred_sedif" class="agree-term" />
-                                    <label for="cred_sedif" class="label-discapacidad _cred_sedif_title"><span><span></span></span>Credencial para personas con discapacidad permanente emitido por el Departamento de Discapacidad del Sistema para el Desarrollo Integral de la Familia en Tlaxcala (SEDIF).</label>     
-                                    <input type="checkbox" name="cred_sesa" id="cred_sesa" class="agree-term" />
-                                    <label for="cred_sesa" class="label-discapacidad "><span><span></span></span>Certificado de Discapacidad permanente emitido por autoridades de salud estatales o federales (IMSS, ISSSTE, Hospital Militar, Secretaría de Salud del estado Tlaxcala).</label>
-                                    <input type="checkbox" name="dict_medico" id="dict_medico" class="agree-term" />
-                                    <label for="dict_medico" class="label-discapacidad "><span><span></span></span>Dictamen Médico de Institución Pública que conste sobre una condición de discapacidad permanente.</label>
-                                    <input type="checkbox" name="const_medica" id="const_medica" class="agree-term" />
-                                    <label for="const_medica" class="label-discapacidad "><span><span></span></span>Constancia Médica de Institución Pública que conste sobre una condición de discapacidad permanente.</label>
-                                    <input type="checkbox" name="otro_doc_prop" id="otro_doc_prop" class="agree-term" onclick="muestraCampo2('otro_doc_prop','campo_otro_doc','otro_doc_txt');" />
-                                    <label for="otro_doc_prop" class="label-discapacidad "><span><span></span></span>Otro (Especifique cuál)</label>
-                                    <div class="form-group collapse hide" id="campo_otro_doc">
-                                        <label for="otro_doc_txt">Escriba otra propuesta</label>
-                                        <input type="text" name="otro_doc_txt" id="otro_doc_txt" />
-                                    </div>
-                                    <div class="invalid-feedback"></div>
-                                </div>
-                            </div>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                    </fieldset>
-                    
-                    <h5>Información a consultar 6</h5>
-                    <fieldset data-step="7">
-                        <div class="form-radio">
-                            <span class="radio-label">3.1 ¿Considera necesario que las personas con discapacidad que deseen integrar los Consejos Distritales o municipales acrediten su discapacidad permanente con algún documento?</span>
-                            <div class="form-radio-group _acred_disc_perm">            
-                                <div class="form-radio-item">
-                                    <input type="radio" name="acred_disc_perm" id="resp_si_3" value="1" onclick="muestraOpciones3(1);">
-                                    <label for="resp_si_3">Sí</label>
-                                    <span class="check"></span>
-                                </div>
-                                <div class="form-radio-item">
-                                    <input type="radio" name="acred_disc_perm" id="resp_no_3" value="0"  onclick="muestraOpciones3(0);">
-                                    <label for="resp_no_3">No</label>
-                                    <span class="check"></span>
-                                </div>
-                            </div>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                        <div class="form-textarea">
-                            <label for="porque_sn_acreditar_perm" class="radio-label">¿Por qué?</label>
-                            <textarea name="porque_sn_acreditar_perm" id="porque_sn_acreditar_perm" placeholder="Escribir aquí"></textarea>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                    </fieldset>
-                    
-                    <h5>Información a consultar 7</h5>
-                    <fieldset data-step="8">
-                        <div class="form-radio">
-                            <span class="radio-label" id="prop_docs_dos_msj1"></span>
-                            <span class="radio-label" id="prop_docs_dos_msj2"></span>
-                            <div class="form-radio-group _prop_documentos_dos collapse show" id="prop_docs_dos_opc">            
-                                <div class="form-check">
-                                    <input type="hidden" name="mostrar_preg2" id="mostrar_preg2" value="1" />
-                                    <input type="checkbox" name="cred_sedif2" id="cred_sedif2" class="agree-term" />
-                                    <label for="cred_sedif2" class="label-discapacidad _cred_sedif2_title"><span><span></span></span>Credencial para personas con discapacidad permanente emitido por el Departamento de Discapacidad del Sistema para el Desarrollo Integral de la Familia en Tlaxcala (SEDIF).</label>     
-                                    <input type="checkbox" name="cred_sesa2" id="cred_sesa2" class="agree-term" />
-                                    <label for="cred_sesa2" class="label-discapacidad "><span><span></span></span>Certificado de Discapacidad permanente emitido por autoridades de salud estatales o federales (IMSS, ISSSTE, Hospital Militar, Secretaría de Salud del estado Tlaxcala).</label>
-                                    <input type="checkbox" name="dict_medico2" id="dict_medico2" class="agree-term" />
-                                    <label for="dict_medico2" class="label-discapacidad "><span><span></span></span>Dictamen Médico de Institución Pública que conste sobre una condición de discapacidad permanente.</label>
-                                    <input type="checkbox" name="const_medica2" id="const_medica2" class="agree-term" />
-                                    <label for="const_medica2" class="label-discapacidad "><span><span></span></span>Constancia Médica de Institución Pública que conste sobre una condición de discapacidad permanente.</label>
-                                    <input type="checkbox" name="otro_doc_prop2" id="otro_doc_prop2" class="agree-term" onclick="muestraCampo2('otro_doc_prop2','campo_otro_doc2','otro_doc_txt2');" />
-                                    <label for="otro_doc_prop2" class="label-discapacidad "><span><span></span></span>Otro (Especifique cuál).</label>
-                                    <div class="form-group collapse hide" id="campo_otro_doc2">
-                                        <label for="otro_doc_txt2">Escriba otra propuesta</label>
-                                        <input type="text" name="otro_doc_txt2" id="otro_doc_txt2" />
-                                    </div>
-                                    <div class="invalid-feedback"></div>
-                                </div>
-                            </div>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                    </fieldset>
-
-                    <h5>Comentarios Adicionales</h5>
-                    <fieldset data-step="9">
-                        <div class="form-textarea">
-                            <label for="comentarios_add" class="radio-label">Escriba en este campo sus comentarios</label>
-                            <textarea name="comentarios_add" id="comentarios_add" placeholder="Escribir aquí"></textarea>
-                            <div class="invalid-feedback"></div>
-                        </div>
-                    </fieldset>
-                </form>
+        <div class="">
+        <form class="was-validated" action="operations.php" method="post" enctype="multipart/form-data"
+            id="miFormulario">
+            <h1>DATOS GENERALES</h1>
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" required>
+            <div class="invalid-feedback">
+                Por favor, ingrese un Nombre
             </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="modal_uno" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal_uno_titulo"></h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" onclick="$('#modal_uno').modal('hide')">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body" id="modal_uno_msj"></div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#modal_uno').modal('hide')">Cerrar</button>
-                            <!--button type="button" class="btn btn-primary">guardar cambios</button -->
-                        </div>
-                    </div>
+            <label for="edad">Edad:</label>
+            <input type="number" class="form-control" id="edad" required>
+            <div class="invalid-feedback">
+                Por favor, ingrese su Edad
+            </div>
+
+            <label for="genero">
+                Género:
+            </label>
+            <select class="form-select" name="genero" id="genero" required>
+                <option value="" selected>Seleccione un género</option>
+                <option value="Mujer">Mujer</option>
+                <option value="Hombre">Hombre</option>
+                <option value="No binario">No binario</option>
+                <option value="otro">Otro</option>
+            </select>
+            <div class="invalid-feedback">
+                Por favor, ingrese un Género
+            </div>
+
+            <div style="display: none" id="otro_genero_container" name="otro_genero_container">
+                <label class="form-label fs-7" for="otro_genero">Especifique:</label>
+                <input type="text" class="form-control" name="otro_genero" id="otro_genero" />
+                <div class="invalid-feedback">
+                    Por favor, especifique
                 </div>
             </div>
-        </div>
+
+            <label class="form-label fs-7" for="municipio">
+                Municipio:
+            </label>
+            <select class="form-select" name="municipio" id="municipio" required>
+                <option value="" selected>Seleccione una opción</option>
+                <option value="1. Amaxac de Guerrero">1. Amaxac de Guerrero</option>
+                <option value="2. Apetatitlán de Antonio Carvajal">2. Apetatitlán de Antonio Carvajal
+                </option>
+                <option value="3. Apizaco">3. Apizaco</option>
+                <option value="4. Atlangatepec">4. Atlangatepec</option>
+                <option value="5. Atltzayanca">5. Atltzayanca</option>
+                <option value="6. Calpulalpan">6. Calpulalpan</option>
+                <option value="7. El Carmen Tequexquitla">7. El Carmen Tequexquitla</option>
+                <option value="8. Cuapiaxtla">8. Cuapiaxtla</option>
+                <option value="9. Cuaxomulco">9. Cuaxomulco</option>
+                <option value="10. Chiautempan">10. Chiautempan</option>
+                <option value="11. Muñoz de Domingo Arenas">11. Muñoz de Domingo Arenas</option>
+                <option value="12. Españita">12. Españita</option>
+                <option value="13. Huamantla">13. Huamantla</option>
+                <option value="14. Hueyotlipan">14. Hueyotlipan</option>
+                <option value="15. Ixtacuixtla de Mariano Matamoros">15. Ixtacuixtla de Mariano
+                    Matamoros</option>
+                <option value="16. Ixtenco">16. Ixtenco</option>
+                <option value="17. Mazatecochco de José María Morelos">17. Mazatecochco de José María
+                    Morelos</option>
+                <option value="18. Contla de Juan Cuamatzi">18. Contla de Juan Cuamatzi</option>
+                <option value="19. Tepetitla de Lardizábal">19. Tepetitla de Lardizábal</option>
+                <option value="20. Sanctórum de Lázaro Cárdenas">20. Sanctórum de Lázaro Cárdenas
+                </option>
+                <option value="21. Nanacamilpa de Mariano Arista">21. Nanacamilpa de Mariano Arista
+                </option>
+                <option value="22. Acuamanala de Miguel Hidalgo">22. Acuamanala de Miguel Hidalgo
+                </option>
+                <option value="23. Natívitas">23. Natívitas</option>
+                <option value="24. Panotla">24. Panotla</option>
+                <option value="25. San Pablo del Monte">25. San Pablo del Monte</option>
+                <option value="26. Santa Cruz Tlaxcala">26. Santa Cruz Tlaxcala</option>
+                <option value="27. Tenancingo">27. Tenancingo</option>
+                <option value="28. Teolocholco">28. Teolocholco</option>
+                <option value="29. Tepeyanco">29. Tepeyanco</option>
+                <option value="30. Terrenate">30. Terrenate</option>
+                <option value="31. Tetla de la Solidaridad">31. Tetla de la Solidaridad</option>
+                <option value="32. Tetlatlahuca">32. Tetlatlahuca</option>
+                <option value="33. Tlaxcala">33. Tlaxcala</option>
+                <option value="34. Tlaxco">34. Tlaxco</option>
+                <option value="35. Tocatlán">35. Tocatlán</option>
+                <option value="36. Totolac">36. Totolac</option>
+                <option value="37. Ziltlaltépec de Trinidad Sánchez Santos">37. Ziltlaltépec de Trinidad
+                    Sánchez Santos</option>
+                <option value="38. Tzompantepec">38. Tzompantepec</option>
+                <option value="39. Xaloztoc">39. Xaloztoc</option>
+                <option value="40. Xaltocan">40. Xaltocan</option>
+                <option value="41. Papalotla de Xicohténcatl">41. Papalotla de Xicohténcatl</option>
+                <option value="42. Xicohtzinco">42. Xicohtzinco</option>
+                <option value="43. Yauhquemehcan">43. Yauhquemehcan</option>
+                <option value="44. Zacatelco">44. Zacatelco</option>
+                <option value="45. Santa Apolonia Teacalco">45. Santa Apolonia Teacalco</option>
+                <option value="46. Santa Cruz Quilehtla">46. Santa Cruz Quilehtla</option>
+                <option value="47. San Juan Huactzinco">47. San Juan Huactzinco</option>
+                <option value="48. Santa Catarina Ayometla">48. Santa Catarina Ayometla</option>
+                <option value="49. Santa Isabel Xiloxoxtla">49. Santa Isabel Xiloxoxtla</option>
+                <option value="50. San José Teacalco">50. San José Teacalco</option>
+                <option value="51. San Francisco Tetlanohcan">51. San Francisco Tetlanohcan</option>
+                <option value="52. La Magdalena Tlaltelulco">52. La Magdalena Tlaltelulco</option>
+                <option value="53. San Damián Texoloc">53. San Damián Texoloc</option>
+                <option value="54. Emiliano Zapata">54. Emiliano Zapata</option>
+                <option value="55. Lázaro Cárdenas">55. Lázaro Cárdenas</option>
+                <option value="56. San Jerónimo Zacualpan">56. San Jerónimo Zacualpan</option>
+                <option value="57. San Lucas Tecopilco">57. San Lucas Tecopilco</option>
+                <option value="58. Santa Ana Nopalucan">58. Santa Ana Nopalucan</option>
+                <option value="59. San Lorenzo Axocomanitla">59. San Lorenzo Axocomanitla</option>
+                <option value="60. Benito Juárez">60. Benito Juárez</option>
+            </select>
+            <div class="invalid-feedback">
+                Por favor, ingrese un Municipio
+            </div>
+
+            <label for="numero_contacto">Número de contacto:</label>
+            <input type="text" class="form-control" id="numero_contacto" required>
+            <div class="invalid-feedback">
+                Por favor, ingrese un Número de contacto
+            </div>
+
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" class="form-control" id="correo" required>
+            <div class="invalid-feedback">
+                Por favor, ingrese un Correo Electrónico
+            </div>
+
+            <label for="discapacidad">¿Es usted una persona con discapacidad permanente?</label>
+            <select class="form-control" name="discapacidad" id="discapacidad" required>
+                <option value="" selected>Seleccione una opción</option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+            <div class="invalid-feedback">
+                Por favor, seleccione una opción
+            </div>
+
+            <div style="display: none" id="si_discapacidad_container" name="si_discapacidad_container">
+                <label for="nombre_discapacidad">¿Qué tipo de discapacidad presenta?:</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="discapacidad_fisica" name="tipo_discapacidad"
+                        value="Discapacidad física">
+                    <label class="form-check-label" for="discapacidad_fisica">Discapacidad física</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="discapacidad_mental" name="tipo_discapacidad"
+                        value="Discapacidad mental">
+                    <label class="form-check-label" for="discapacidad_mental">Discapacidad mental</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="discapacidad_intelectual" name="tipo_discapacidad"
+                        value="Discapacidad intelectual">
+                    <label class="form-check-label" for="discapacidad_intelectual">Discapacidad intelectual</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="discapacidad_sensorial" name="tipo_discapacidad"
+                        value="Discapacidad sensorial">
+                    <label class="form-check-label" for="discapacidad_sensorial">Discapacidad sensorial</label>
+                </div>
+                <div class="invalid-feedback">
+                    Por favor, especifique
+                </div>
+            </div>
+
+            <div style="display: none" id="no_discapacidad_container" name="no_discapacidad_container">
+                <label for="vinculo_persona">Especifique su vínculo con la persona con discapacidad:</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="familiar" name="vinculo_persona" value="Familiar">
+                    <label class="form-check-label" for="familiar">Familiar</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="cuidador" name="vinculo_persona"
+                        value="Cuidador/a">
+                    <label class="form-check-label" for="cuidador">Cuidador/a</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="integrante" name="vinculo_persona"
+                        value="Integrante o representante de una asociación o agrupación de personas con discapacidad">
+                    <label class="form-check-label" for="integrante">Integrante o representante de una asociación o
+                        agrupación de personas con discapacidad</label>
+                </div>
+                <div class="invalid-feedback">
+                    Por favor, especifique
+                </div>
+            </div>
+
+            <div style="display: none" id="integrante_container" name="integrante_container">
+                <label for="edad">Favor de indicar el nombre:</label>
+                <input type="text" class="form-control" id="nombre_integracion">
+                <div class="invalid-feedback">
+                    Por favor, ingrese el nombre
+                </div>
+            </div>
+            <h1>FORTALECIMIENTO DE LA PARTICIPACIÓN Y REPRESENTACIÓN POLÍTICA DE LAS PERSONAS CON DISCAPACIDAD</h1>
+            <label for="retos_discapacidad">Si es una persona con discapacidad permanente ¿A qué barreras o retos se ha
+                enfrentado para ejercer sus derechos político electorales?:</label>
+            <input type="text" class="form-control" id="retos_discapacidad" required>
+            <div class="invalid-feedback">
+                Por favor, ingrese el nombre
+            </div>
+
+            <div class="form-group">
+                <label>
+                    ¿Cuáles podrían ser algunas propuestas o acciones para promover la participación y representación
+                    política de las personas con discapacidad permanente en Tlaxcala? (Puede marcar más de una).
+                </label>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="opcion1" name="acciones_interes[]"
+                        value="Impulsar la participación e inclusión de las personas con discapacidad en los partidos políticos.">
+                    <label class="form-check-label" for="opcion1">Impulsar la participación e inclusión de las personas
+                        con discapacidad en los partidos políticos.</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="opcion2" name="acciones_interes[]"
+                        value="Realizar foros o eventos sobre participación y representación política dirigidos a personas con discapacidad.">
+                    <label class="form-check-label" for="opcion2">Realizar foros o eventos sobre participación y
+                        representación política dirigidos a personas con discapacidad.</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="opcion3" name="acciones_interes[]"
+                        value="Capacitación de las personas con discapacidad a través de las organizaciones de la sociedad civil en la materia.">
+                    <label class="form-check-label" for="opcion3">Capacitación de las personas con discapacidad a través
+                        de las organizaciones de la sociedad civil en la materia.</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="opcion4" name="acciones_interes[]"
+                        value="Sensibilización a partidos políticos en temas de discapacidad.">
+                    <label class="form-check-label" for="opcion4">Sensibilización a partidos políticos en temas de
+                        discapacidad.</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="opcion5" name="acciones_interes[]" value="Otra">
+                    <label class="form-check-label" for="opcion5">Otra</label>
+                </div>
+            </div>
+
+            <div style="display: none" id="acciones_interes_container" name="acciones_interes_container">
+                <label for="otraAccion">Especifique:</label>
+                <textarea class="form-control" id="otraAccion" name="otraAccion"></textarea>
+            </div>
+
+            <label for="opinion_accion_afirmativa">
+                ¿Estás de acuerdo en que la acción afirmativa dirigida a personas con discapacidad se considere
+                únicamente a personas con discapacidad permanente?
+            </label>
+            <select class="form-control" name="opinion_accion_afirmativa" id="opinion_accion_afirmativa" required>
+                <option value="" selected>Seleccione una opción</option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+            <div class="invalid-feedback">
+                Por favor, seleccione una opción
+            </div>
+
+            <label for="completa_opinio">¿Porqué?:</label>
+            <textarea class="form-control" id="completa_opinion" name="completa_opinion" required></textarea>
+
+            <div style="display: none" id="opinion_accion_afirmativa_container"
+                name="opinion_accion_afirmativa_container">
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <label for="acreditar_discapacidad">
+                ¿Considera necesario que las personas con discapacidad permanente postuladas a una candidatura tengan
+                que acreditar su discapacidad con algún documento?
+            </label>
+            <select class="form-control" name="acreditar_discapacidad" id="acreditar_discapacidad" required>
+                <option value="" selected>Seleccione una opción</option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+            <div class="invalid-feedback">
+                Por favor, seleccione una opción
+            </div>
+
+            <label for="completa_opinio">¿Porqué?:</label>
+            <textarea class="form-control" id="acreditar_opinion" name="acreditar_opinion"></textarea>
+
+            <div style="display: none" id="acreditar_discapacidad_container" name="acreditar_discapacidad_container">
+                <div class="form-group">
+                    <label>Documentación de discapacidad (seleccione todas las que correspondan):</label>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="opcion1" name="documentacion_discapacidad[]"
+                            value="Credencial para personas con discapacidad permanente emitido por el Departamento de Discapacidad del Sistema para el Desarrollo Integral de la familia en Tlaxcala (SEDIF).">
+                        <label class="form-check-label" for="opcion1">Credencial para personas con discapacidad
+                            permanente emitido por el Departamento de Discapacidad del Sistema para el Desarrollo
+                            Integral de la familia en Tlaxcala (SEDIF).</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="opcion2" name="documentacion_discapacidad[]"
+                            value="Certificado de Discapacidad permanente emitido por autoridades de salud estatales o federales (IMSS, ISSTE, Hospital Militar, Secretaria de Salud del Estado de Tlaxcala).">
+                        <label class="form-check-label" for="opcion2">Certificado de Discapacidad permanente emitido por
+                            autoridades de salud estatales o federales (IMSS, ISSTE, Hospital Militar, Secretaria de
+                            Salud del Estado de Tlaxcala).</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="opcion3" name="documentacion_discapacidad[]"
+                            value="Dictamen Médico de Institución Pública que conste sobre una condición de discapacidad permanente.">
+                        <label class="form-check-label" for="opcion3">Dictamen Médico de Institución Pública que conste
+                            sobre una condición de discapacidad permanente.</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="opcion4" name="documentacion_discapacidad[]"
+                            value="Constancia Médica de Institución pública que conste sobre una condición de discapacidad permanente.">
+                        <label class="form-check-label" for="opcion4">Constancia Médica de Institución pública que
+                            conste sobre una condición de discapacidad permanente.</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="opcion5" name="documentacion_discapacidad[]"
+                            value="Otra">
+                        <label class="form-check-label" for="opcion5">Otra</label>
+                    </div>
+                </div>
+
+                <div style="display: none" id="otra_documentacion_container" name="otra_documentacion_container">
+                    <label for="otra_documentacion">Especifique:</label>
+                    <textarea class="form-control" id="otraAccion" name="otra_documentacion"></textarea>
+                </div>
+
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+        
         <!-- --------------------------------------------------------------------------------------- -->
     </div>
 </div>

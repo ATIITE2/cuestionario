@@ -12,43 +12,6 @@ cntrlt[8] =0;
 cntrlt[9] =0;
 
 $(document).ready(function() {
-    $("#cuestionario-form")
-    .steps({
-        headerTag: "h5",
-        bodyTag: "fieldset",
-        transitionEffect: "fade",
-        labels: {
-            previous : 'Anterior',
-            next : 'Siguiente',
-            finish : 'Enviar',
-            current : ''
-        },
-        titleTemplate : '<h5 class="title">#title#</h5>',
-
-        // Triggered when clicking the Previous/Next buttons
-        onStepChanging: function(event, currentIndex, newIndex) {
-            
-            /*var d=validaDatos(currentIndex);
-            console.log("¿aqui que onda? "+d); */
-            
-            validaDatos(currentIndex);
-
-            return (cntrlt[currentIndex] === 1) ? true : false;
-        },
-
-        onFinishing: function(event, currentIndex) {
-
-            validaDatos(currentIndex);
-
-            return (cntrlt[currentIndex] === 1) ? true : false;
-        },
-
-        onFinished: function (event, currentIndex)
-        {
-            guardarDatos(-1);
-            $("#cuestionario-form-t-0").click();
-        }
-    });
 
     $('#country').parent().append('<ul id="newcountry" class="select-list" name="country"></ul>');
     $('#country option').each(function(){
@@ -131,7 +94,8 @@ $(document).ready(function() {
                             $("#result").attr("class", "alert alert-danger").html(data.mssg);          
                         }
                         else {
-                            $(data.error).addClass("is-invalid").focus();
+                            //$(data.error).addClass("is-invalid").focus();
+                            $(data.error).addClass("is-invalid");
                             if (["._genero","._disc_fisica","._cred_sedif","._cred_sedif2"].includes(data.error)) {
                                 $(data.error+"_title").html(data.mssg).addClass("invalid-msg");
                             }
@@ -150,7 +114,7 @@ $(document).ready(function() {
             });
         }
         else {
-            $("[data-step='"+indice+"']").focus();
+            //$("[data-step='"+indice+"']").focus();
         }
     
         form.addClass("was-validated");
@@ -329,7 +293,7 @@ $(document).ready(function() {
         $("#mostrar_preg1").val(1);
         $("#mostrar_preg2").val(1);
 
-        $("#prop_docs_msj1").html("2.2 En caso de haber respondido SÍ, a la pregunta anterior");
+        $("#prop_docs_msj1").html("2.2 <span class='resalto'>*</span>En caso de haber respondido SÍ, a la pregunta anterior");
         $("#prop_docs_msj2").html("¿De qué forma o con qué documento considera que podría acreditar la situación de discapacidad de una persona?");
         $("#prop_docs_opciones").removeClass("show").addClass("hide");
         $("#cred_sedif").prop('checked', false);
@@ -338,7 +302,7 @@ $(document).ready(function() {
         $("#const_medica").prop('checked', false);
         $("#otro_doc_prop").prop('checked', false);
 
-        $("#prop_docs_dos_msj1").html("3.2 En caso de haber respondido SI, a la pregunta anterior");
+        $("#prop_docs_dos_msj1").html("3.2 <span class='resalto'>*</span>En caso de haber respondido SI, a la pregunta anterior");
         $("#prop_docs_dos_msj2").html("¿Qué documento considera que podría acreditar la situación de discapacidad de una persona?");
         $("#prop_docs_dos_opc").removeClass("show").addClass("hide");
 
@@ -401,7 +365,7 @@ function muestraOpciones1(n){
     $("#mostrar_preg1").val(num);
 
     if(num === 1) { 
-        $("#prop_docs_msj1").html("2.2 En caso de haber respondido SÍ, a la pregunta anterior");
+        $("#prop_docs_msj1").html("2.2 <span class='resalto'>*</span>En caso de haber respondido SÍ, a la pregunta anterior");
         $("#prop_docs_msj2").html("¿De qué forma o con qué documento considera que podría acreditar la situación de discapacidad de una persona?");
         $("#prop_docs_opciones").removeClass("hide").addClass("show");  
     }
@@ -425,7 +389,7 @@ function muestraOpciones1(n){
     $("#mostrar_preg2").val(num);
 
     if(num === 1) { 
-        $("#prop_docs_dos_msj1").html("3.2 En caso de haber respondido SI, a la pregunta anterior");
+        $("#prop_docs_dos_msj1").html("3.2 <span class='resalto'>*</span>En caso de haber respondido SI, a la pregunta anterior");
         $("#prop_docs_dos_msj2").html("¿Qué documento considera que podría acreditar la situación de discapacidad de una persona?");
         $("#prop_docs_dos_opc").removeClass("hide").addClass("show");  
     }

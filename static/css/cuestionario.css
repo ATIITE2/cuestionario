@@ -167,25 +167,6 @@ input[type=radio] {
 .clear {
   clear: both; }
 
-/* h5 {
-  font-size: 18px;
-  font-weight: 700;
-  color: #999999;
-  cursor: pointer;
-} */
-
-/* body {
-  font-size: 15px;
-  line-height: 1.92;
-  color: #222;
-  font-weight: 500;
-  font-family: 'Poppins';
-  margin: 0px;
-  background-image: -moz-linear-gradient(0deg, #d9afd9 0%, #5a2170 0%, #a1c4fd 0%, #c2e9fb 100%);
-  background-image: -webkit-linear-gradient(0deg, #d9afd9 0%, #5a2170 0%, #a1c4fd 0%, #c2e9fb 100%);
-  background-image: -ms-linear-gradient(0deg, #d9afd9 0%, #5a2170 0%, #a1c4fd 0%, #c2e9fb 100%); 
-} */
-
 .principal {
   padding: 50px 0; }
 
@@ -273,7 +254,12 @@ input, textarea {
 
 input, label, textarea {
   width: 100%;
-  display: block; }
+  display: block;
+color: #ebebeb !important; }
+
+.resalto{
+  color: crimson;
+}
 
 input[type=checkbox]:not(old) {
   width: 2em;
@@ -338,8 +324,9 @@ fieldset.current {
 .content {
   padding-right: 70px;
   padding-left: 80px;
-  height: 410px; }
-  .content h5 {
+  height: 480px; }
+
+  .content h6 {
     display: none; }
 
 .steps {
@@ -373,11 +360,11 @@ fieldset.current {
         font-weight: bold; }
       .steps ul li:hover:after {
         height: 3px; }
-      .steps ul li:hover a h5 {
+      .steps ul li:hover a h6 {
         color: #6dbdfe; }
     .steps ul .current:after {
       height: 3px; }
-    .steps ul .current a h5 {
+    .steps ul .current a h6 {
       color: #6dbdfe; }
 
 .actions {
@@ -424,7 +411,7 @@ fieldset.current {
 .form-row {
   margin: 0 -15px; }
 
-.form-group, .form-select {
+.form-group /*.form-select */{
   width: 50%;
   padding: 0 15px;
   margin-bottom: 15px; }
@@ -456,8 +443,8 @@ fieldset.current {
   display: block;
   width: 100%; }
 
-#genero {
-  z-index: 99; }
+/* #genero {
+  z-index: 99; } */
 
 .select-list li {
   padding: 14px 20px;
@@ -528,7 +515,14 @@ li.init {
 
 .radio-label {
   font-size: 18px;
-  padding-bottom: 2px; }
+  padding-bottom: 2px;
+  color: #222 !important;
+}
+
+.modal-title, .modal-body{
+  color: #222 !important;
+  text-align: center !important;
+}
 
 .check {
   display: inline-block;
@@ -593,18 +587,18 @@ input[type=radio] {
     width: 100%;
     margin: 0px; }
 
-  .form-group, .form-select {
+  .form-group /*.form-select */ {
     padding: 0px;
     width: 100%; }
 
   .form-row {
     margin: 0px; }
 
-  .form-select {
-    margin-bottom: 65px; }
+  /*.form-select {
+    margin-bottom: 65px; } */
 
   .content {
-    height: 550px;
+    height: 760px;
     padding-right: 30px;
     padding-left: 30px; }
 
